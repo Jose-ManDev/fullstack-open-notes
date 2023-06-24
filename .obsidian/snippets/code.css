@@ -1,0 +1,3 @@
+.obsidian-embedded-code-title__code-block-title + code[class*="language-"] {
+  padding: var(--size-2-2) var(--size-4-6) !important;
+}

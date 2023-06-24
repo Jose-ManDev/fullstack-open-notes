@@ -1,0 +1,10 @@
+.internal-embed.media-embed.image-embed.is-loaded {
+  display: flex;
+  justify-content: center;
+}
+
+.internal-embed img:not([width]) {
+  max-width: 75%;
+  height: auto;
+  margin: 0px;
+}

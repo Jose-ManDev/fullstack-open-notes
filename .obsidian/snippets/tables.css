@@ -1,0 +1,9 @@
+.markdown-preview-view table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+thead {
+  color: var(--strong-color);
+  font-weight: var(--bold-weight);
+}
