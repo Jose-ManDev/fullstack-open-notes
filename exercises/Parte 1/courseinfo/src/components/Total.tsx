@@ -1,10 +1,10 @@
 type TotalProps = {
-  exercises: number[];
+  parts: Array<{ exercises: number }>;
 };
 
-function Total({ exercises }: TotalProps) {
-  const total = exercises.reduce(
-    (accumulator, current) => accumulator + current,
+function Total({ parts }: TotalProps) {
+  const total = parts.reduce(
+    (accumulator, current) => accumulator + current.exercises,
     0
   );
   return <p>Number of exercises {total}</p>;
