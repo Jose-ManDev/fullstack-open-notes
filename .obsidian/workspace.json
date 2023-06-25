@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Parte 1/A. Introducción a React.md",
+                "file": "Notes/Parte 1/JavaScript.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Parte 1/A. Introducción a React.md",
+                "file": "Notes/Parte 1/JavaScript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Parte 1/A. Introducción a React.md",
+                "file": "Notes/Parte 1/JavaScript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Parte 1/A. Introducción a React.md"
+                "file": "Notes/Parte 1/JavaScript.md"
               }
             }
           }
@@ -142,7 +142,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -156,6 +157,9 @@
   },
   "active": "cfa3e4b0aed7ab66",
   "lastOpenFiles": [
+    "exercises/Parte 1/courseinfo/vite.config.ts.timestamp-1687655924788-aec3749a8fef8.mjs",
+    "Notes/Parte 1/A. Introducción a React.md",
+    "Notes/Parte 1/JavaScript.md",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-runtime.production.min.js",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-runtime.development.js",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-babel.production.min.js",
@@ -167,7 +171,6 @@
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/babel.js",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh",
-    "exercises/Parte 1/courseinfo/node_modules/color-name/test.js",
     "exercises/Parte 1/courseinfo/node_modules/color-name/README.md",
     "exercises/Parte 1/courseinfo/node_modules/ansi-styles/readme.md",
     "exercises/Parte 1/courseinfo/node_modules/escape-string-regexp/readme.md",
@@ -190,8 +193,6 @@
     "exercises/Parte 1/courseinfo/node_modules/minimatch/README.md",
     "exercises/Parte 1/courseinfo/node_modules/ignore/README.md",
     "exercises/Parte 1/courseinfo/node_modules/callsites/readme.md",
-    "exercises/Parte 1/courseinfo/node_modules/parent-module/readme.md",
-    "exercises/Parte 1/courseinfo/node_modules/resolve-from/readme.md",
     "exercises/Parte 1/courseinfo/src/assets/react.svg",
     "exercises/Parte 1/courseinfo/public/vite.svg",
     "projects/part1/courseinfo/src/assets/react.svg",

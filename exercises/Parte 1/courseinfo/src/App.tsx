@@ -2,20 +2,29 @@ import Header from "./components/Header";
 import Content from "./components/Content";
 import Total from "./components/Total";
 
+type Part = {
+  name: string;
+  exercises: number;
+};
+
 function App() {
   const course = "Half Stack application development";
-  const part1 = "Fundamentals of React";
-  const exercises1 = 10;
-  const part2 = "Using props to pass data";
-  const exercises2 = 7;
-  const part3 = "State of a component";
-  const exercises3 = 14;
+  const part1: Part = {
+    name: "Fundamentals of React",
+    exercises: 10,
+  };
 
-  const parts = [
-    { partName: part1, exercises: exercises1 },
-    { partName: part2, exercises: exercises2 },
-    { partName: part3, exercises: exercises3 },
-  ];
+  const part2: Part = {
+    name: "Using props to pass data",
+    exercises: 7,
+  };
+
+  const part3: Part = {
+    name: "State of a component",
+    exercises: 14,
+  };
+
+  const parts = [part1, part2, part3];
 
   return (
     <div>
@@ -23,7 +32,7 @@ function App() {
 
       <Content parts={parts} />
 
-      <Total exercises={[exercises1, exercises2, exercises3]} />
+      <Total exercises={[part1.exercises, part2.exercises, part3.exercises]} />
     </div>
   );
 }
