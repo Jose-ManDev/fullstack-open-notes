@@ -1,17 +1,9 @@
-import { useState } from "react";
-import anecdotes from "./utils/anecdotes";
-import { randInt } from "./utils/randomGenerator";
-import Button from "./components/Button";
+import Anecdote from "./features/Anecdote";
 
 function App() {
-  const [selected, setSelected] = useState(0);
-
   return (
     <div>
-      <blockquote>{anecdotes[selected]}</blockquote>
-      <Button handleClick={() => setSelected(randInt(anecdotes.length))}>
-        Next Anecdote
-      </Button>
+      <Anecdote />
     </div>
   );
 }
