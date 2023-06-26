@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "0f7f067f48c53de7",
+        "id": "5baa6e23e93158b5",
         "type": "tabs",
         "children": [
           {
-            "id": "cfa3e4b0aed7ab66",
+            "id": "2e535c171c2bf024",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notes/Parte 1/JavaScript.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Parte 1/JavaScript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Parte 1/JavaScript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Notes/Parte 1/JavaScript.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -155,11 +147,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "cfa3e4b0aed7ab66",
+  "active": "2e535c171c2bf024",
   "lastOpenFiles": [
+    "exercises/Parte 1/A. Introducción a React.md",
+    "Notes/Parte 1/D. Estados complejos y debugging en aplicaciones de React.md",
+    "Notes/Parte 1/Images/Pasted image 20230625190200.png",
+    "Notes/Parte 1/Images/Pasted image 20230625185745.png",
+    "Notes/Parte 1/C. Componentes, estado y event handlers.md",
+    "Notes/Parte 1/Images/Pasted image 20230625001015.png",
+    "exercises/Parte 1/courseinfo/vite.config.ts.timestamp-1687669693038-258a595f64a5e.mjs",
+    "Notes/Parte 1/B. JavaScript.md",
     "exercises/Parte 1/courseinfo/vite.config.ts.timestamp-1687655924788-aec3749a8fef8.mjs",
     "Notes/Parte 1/A. Introducción a React.md",
-    "Notes/Parte 1/JavaScript.md",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-runtime.production.min.js",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-runtime.development.js",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-babel.production.min.js",
@@ -169,8 +168,6 @@
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/README.md",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/package.json",
     "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/babel.js",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh",
     "exercises/Parte 1/courseinfo/node_modules/color-name/README.md",
     "exercises/Parte 1/courseinfo/node_modules/ansi-styles/readme.md",
     "exercises/Parte 1/courseinfo/node_modules/escape-string-regexp/readme.md",
@@ -191,17 +188,12 @@
     "exercises/Parte 1/courseinfo/node_modules/is-glob/README.md",
     "exercises/Parte 1/courseinfo/node_modules/json-schema-traverse/README.md",
     "exercises/Parte 1/courseinfo/node_modules/minimatch/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/ignore/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/callsites/readme.md",
     "exercises/Parte 1/courseinfo/src/assets/react.svg",
     "exercises/Parte 1/courseinfo/public/vite.svg",
     "projects/part1/courseinfo/src/assets/react.svg",
     "projects/part1/courseinfo/public/vite.svg",
     "Notes/Parte 1/Images/Pasted image 20230501000126.png",
     "Notes/Parte 1/Images/Pasted image 20230430235621.png",
-    "Notes/Parte 1/Images/Pasted image 20230430235358.png",
-    "Notes/Parte 1/Images/Pasted image 20230501000450.png",
-    "Pasted image 20230430235445.png",
-    "Pasted image 20230430235249.png"
+    "Notes/Parte 1/Images/Pasted image 20230430235358.png"
   ]
 }

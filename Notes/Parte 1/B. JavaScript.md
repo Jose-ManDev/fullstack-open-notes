@@ -195,3 +195,113 @@ const square = function(a) {
 	return a * a;
 }
 ```
+
+# Métodos de objeto  y `this`
+
+De la misma forma que se pueden asignar propiedades a un objeto se pueden asignar propiedades que sean funciones:
+
+```javascript
+const person = {
+	name: "Arthur Pendragon",
+	age: 25,
+	education: null,
+	greet: function() {
+		console.log(`Hello, my name is ${this.name}`);
+	}
+};
+
+person.greet(); //-> "Hello, my name is Arthur Pendragon"
+```
+
+Incluso se pueden asignar métodos después de haber creado el objeto
+
+```javascript
+person.growOlder = function() {
+	this.age += 1;
+}
+
+console.log(person.age); //-> 25
+person.growOlder();
+console.log(person.age); //-> 26
+```
+
+Modifiquemos un poco el objeto
+
+```javascript
+const person = {
+	name: "Arthur Pendragon",
+	age: 25,
+	education: null,
+	greet: function() {
+		console.log(`Hello, my name is ${this.name}`);
+	},
+	challenge: function(name) {
+		console.log(`I challenge you to a duel, ${name}`);
+	}
+};
+
+person.challenge("Lancelot"); //-> "I challenge you to a duel, Lancelot"
+
+const referenceToChallenge = person.challenge;
+referenceToChallenge("Morgause"); //-> "I challenge you to a duel, Morgause"
+```
+
+Como se puede ver, el método `challenge()` se llama correctamente sin importar si se llama directamente del objeto o desde una referencia a este. Sin embargo, si intentamos lo mismo con el método `greet()` tendremos un problema.
+
+```javascript
+const referenceToGreet = person.greet;
+referenceToGreet(); //-> "Hello, my name is undefined"
+```
+
+Al llamar al método desde una referencia este pierde el contexto sobre lo era `this`. En condiciones normales `this` apunta al objeto que contiene el método, pero al usar la referencia pierde dicho contexto y usa aquel en el que es llamado, en este caso, el objeto global.
+
+Esto puede pasar bastante seguido cuando se usan referencias a un método en vez de llamar el método directamente, como cuando se usa la función como una callback function.
+
+```javascript
+function call(func) {
+	func();
+}
+
+call(person.greet); // -> "Hello, my name is undefined"
+```
+
+Para evitar esto podemos llamar al método dentro de otra función.
+
+```javascript
+call(() => person.greet()); //-> "Hello, my name is Arthur Pendragon"
+```
+
+O usar el método `bind`.
+
+```javascript
+call(person.greet.bind(person)); //-> "Hello, my name is Arthur Pendragon"
+```
+
+El método `bind` crea una nueva función donde `this` está ligado al objeto que se le da independientemente del contexto en el que se llama al método.
+
+Si bien se usó una función flecha para resolver este problema no es recomendable hacerlo, pues en las funciones flecha no existe un contexto para `this`, lo que puede provocar fallos inesperados en el programa.
+
+# Clases
+
+Si bien no existe un mecanismo de clases en JavaScript como el de otros lenguajes de programación orientados a objetos sí hay una forma de "simular" este comportamiento. Esto se hace mediante la *sintaxis de clase* que se introdujo en ES6, la cual simplifica bastante este tipo de operaciones.
+
+Este es un ejemplo de su uso:
+
+```javascript
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	greet() {
+		console.log(`Hello, my name is ${this.name}`);
+	}
+}
+
+const arthur = new Person("Arthur Pendragon", 25);
+const lancelot = new Person("Lancelot du Lac", 30);
+
+arthur.greet(); //-> Hello, my name is Arthur Pendragon
+lancelot.greet(); //-> Hello, my name is Lancelot du Lac
+```
