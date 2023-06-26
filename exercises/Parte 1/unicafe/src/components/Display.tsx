@@ -9,11 +9,17 @@ export default function Display({ title, data }: DisplayProps) {
   return (
     <div>
       <h2>{title}</h2>
-      <ul>
-        {data.map((item) => (
-          <DisplayLine key={item.label} label={item.label} value={item.value} />
-        ))}
-      </ul>
+      <table>
+        <tbody>
+          {data.map((item) => (
+            <DisplayLine
+              key={item.label}
+              label={item.label}
+              value={item.value}
+            />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -25,8 +31,9 @@ type DisplayLineProps = {
 
 function DisplayLine({ label, value }: DisplayLineProps) {
   return (
-    <li>
-      <span>{label}</span> <span>{value}</span>
-    </li>
+    <tr>
+      <td>{label}</td>
+      <td>{value}</td>
+    </tr>
   );
 }
