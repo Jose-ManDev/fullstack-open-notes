@@ -33,5 +33,14 @@ export default function Statistics({ stats }: StatisticsProps) {
     { label: "Positive", value: `${getPositive().toFixed(2)} %` },
   ];
 
+  if (getTotal() === 0) {
+    return (
+      <div>
+        <h2>Statistics</h2>
+        No feedback given
+      </div>
+    );
+  }
+
   return <Display title="Statistics" data={statsArray} />;
 }
