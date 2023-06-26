@@ -1,43 +1,44 @@
-import { useState } from "react";
-import anecdotes from "../utils/anecdotes";
+import { MouseEventHandler } from "react";
 import { randInt } from "../utils/randomGenerator";
 import Button from "../components/Button";
 
 type votes = Record<number, number>;
 
-export default function Anecdote() {
-  const [selected, setSelected] = useState(0);
+type AnecdoteDisplayProps = {
+  anecdote: { content: string; id: number };
+  votes: votes;
+  handleNext: MouseEventHandler<HTMLButtonElement>;
+  handleVote: MouseEventHandler<HTMLButtonElement>;
+};
 
-  const initialVotes = anecdotes.reduce((dict, _, index) => {
-    return { ...dict, [index]: 0 };
-  }, {});
-
-  const [votes, setVotes] = useState<votes>(initialVotes);
-
-  const getNextAnecdote = () => {
-    let next = 0;
-
-    do {
-      next = randInt(anecdotes.length);
-
-      if (next !== selected) return next;
-    } while (next === selected);
-
-    return next;
-  };
-
-  const handleVote = (anecdoteId: number) =>
-    setVotes({ ...votes, [anecdoteId]: votes[anecdoteId] + 1 });
-
-  const handleNext = () => setSelected(getNextAnecdote());
-
+function AnecdoteDisplay({
+  anecdote,
+  votes,
+  handleNext,
+  handleVote,
+}: AnecdoteDisplayProps) {
   return (
     <div>
-      <blockquote>{anecdotes[selected]}</blockquote>
-      <div>Has {votes[selected]}</div>
+      <Anecdote content={anecdote.content} votes={votes[anecdote.id]} />
 
-      <Button handleClick={() => handleVote(selected)}>Vote</Button>
+      <Button handleClick={handleVote}>Vote</Button>
       <Button handleClick={handleNext}>Next anecdote</Button>
     </div>
   );
 }
+
+type AnecdoteProps = {
+  content: string;
+  votes: number;
+};
+
+function Anecdote({ content, votes }: AnecdoteProps) {
+  return (
+    <>
+      <blockquote>{content}</blockquote>
+      <div>Has {votes}</div>
+    </>
+  );
+}
+
+export { Anecdote, AnecdoteDisplay };
