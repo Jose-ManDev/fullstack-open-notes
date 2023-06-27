@@ -1,5 +1,4 @@
 import { MouseEventHandler } from "react";
-import { randInt } from "../utils/randomGenerator";
 import Button from "../components/Button";
 
 type votes = Record<number, number>;
