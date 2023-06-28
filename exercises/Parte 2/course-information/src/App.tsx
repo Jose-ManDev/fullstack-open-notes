@@ -1,10 +1,12 @@
 import Course from "./features/Course";
-import course from "./utils/course";
+import courses from "./utils/courses";
 
 function App() {
   return (
     <div>
-      <Course course={course} />
+      {courses.map((course) => (
+        <Course key={course.id} course={course} />
+      ))}
     </div>
   );
 }
