@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "5baa6e23e93158b5",
+        "id": "af05df81bd74e0d4",
         "type": "tabs",
         "children": [
           {
-            "id": "2e535c171c2bf024",
+            "id": "5a7ba9170898130f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md"
+              }
             }
           }
         ],
@@ -147,53 +155,53 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2e535c171c2bf024",
+  "active": "5a7ba9170898130f",
   "lastOpenFiles": [
-    "exercises/Parte 1/A. Introducción a React.md",
-    "Notes/Parte 1/D. Estados complejos y debugging en aplicaciones de React.md",
+    "exercises/Parte 2/course-information/vite.config.ts.timestamp-1687933179693-b2877fca4625a.mjs",
+    "exercises/Parte 2/course-information/src/components/Header.tsx",
+    "exercises/Parte 2/course-information/src/components",
+    "exercises/Parte 2/course-information/src/features/Course.tsx",
+    "exercises/Parte 2/course-information/src/features",
+    "exercises/Parte 2/course-information/src/types/course.d.ts",
+    "exercises/Parte 2/course-information/src/types",
+    "exercises/Parte 2/course-information/src/utils/course.ts",
+    "exercises/Parte 2/course-information/src/utils",
+    "exercises/Parte 2/course-information/node_modules/@babel/core/lib/vendor/import-meta-resolve.js.map",
+    "exercises/Parte 2/course-information/node_modules/@babel/core/lib/vendor/import-meta-resolve.js",
+    "exercises/Parte 2/course-information/node_modules/update-browserslist-db/README.md",
+    "exercises/Parte 2/course-information/node_modules/which/README.md",
+    "exercises/Parte 2/course-information/node_modules/which/CHANGELOG.md",
+    "exercises/Parte 2/course-information/node_modules/yallist/README.md",
+    "exercises/Parte 2/course-information/node_modules/typescript/README.md",
+    "exercises/Parte 2/course-information/node_modules/typescript/SECURITY.md",
+    "exercises/Parte 2/course-information/node_modules/ajv/lib/dotjs/README.md",
+    "exercises/Parte 2/course-information/node_modules/tsutils/README.md",
+    "exercises/Parte 2/course-information/node_modules/tsutils/CHANGELOG.md",
+    "exercises/Parte 2/course-information/node_modules/uri-js/README.md",
+    "exercises/Parte 2/course-information/node_modules/caniuse-lite/README.md",
+    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/types/README.md",
+    "exercises/Parte 2/course-information/node_modules/react/README.md",
+    "exercises/Parte 2/course-information/node_modules/react-dom/README.md",
+    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/utils/README.md",
+    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/typescript-estree/README.md",
+    "exercises/Parte 2/course-information/node_modules/@ampproject/remapping/README.md",
+    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/scope-manager/README.md",
+    "exercises/Parte 2/course-information/node_modules/node-releases/README.md",
+    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/type-utils/README.md",
+    "exercises/Parte 2/course-information/node_modules/color-name/README.md",
+    "exercises/Parte 2/course-information/node_modules/file-entry-cache/README.md",
+    "exercises/Parte 2/course-information/node_modules/minimatch/README.md",
+    "exercises/Parte 2/course-information/node_modules/jsesc/README.md",
+    "exercises/Parte 2/course-information/node_modules/@humanwhocodes/config-array/README.md",
+    "exercises/Parte 2/course-information/src/assets/react.svg",
+    "exercises/Parte 2/course-information/public/vite.svg",
+    "Notes/Parte 2/Images/Pasted image 20230627211229.png",
     "Notes/Parte 1/Images/Pasted image 20230625190200.png",
     "Notes/Parte 1/Images/Pasted image 20230625185745.png",
-    "Notes/Parte 1/C. Componentes, estado y event handlers.md",
     "Notes/Parte 1/Images/Pasted image 20230625001015.png",
-    "exercises/Parte 1/courseinfo/vite.config.ts.timestamp-1687669693038-258a595f64a5e.mjs",
-    "Notes/Parte 1/B. JavaScript.md",
-    "exercises/Parte 1/courseinfo/vite.config.ts.timestamp-1687655924788-aec3749a8fef8.mjs",
-    "Notes/Parte 1/A. Introducción a React.md",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-runtime.production.min.js",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-runtime.development.js",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-babel.production.min.js",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs/react-refresh-babel.development.js",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/LICENSE",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/runtime.js",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/package.json",
-    "exercises/Parte 1/courseinfo/node_modules/react-refresh/cjs",
-    "exercises/Parte 1/courseinfo/node_modules/color-name/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/ansi-styles/readme.md",
-    "exercises/Parte 1/courseinfo/node_modules/escape-string-regexp/readme.md",
-    "exercises/Parte 1/courseinfo/node_modules/to-fast-properties/readme.md",
-    "exercises/Parte 1/courseinfo/node_modules/eslint-plugin-react-refresh/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/natural-compare-lite/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/slash/readme.md",
-    "exercises/Parte 1/courseinfo/node_modules/is-number/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/merge2/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/tslib/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/is-path-inside/readme.md",
-    "exercises/Parte 1/courseinfo/node_modules/queue-microtask/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/yocto-queue/readme.md",
-    "exercises/Parte 1/courseinfo/node_modules/imurmurhash/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/lodash.merge/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/acorn-jsx/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/is-extglob/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/is-glob/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/json-schema-traverse/README.md",
-    "exercises/Parte 1/courseinfo/node_modules/minimatch/README.md",
     "exercises/Parte 1/courseinfo/src/assets/react.svg",
     "exercises/Parte 1/courseinfo/public/vite.svg",
     "projects/part1/courseinfo/src/assets/react.svg",
-    "projects/part1/courseinfo/public/vite.svg",
-    "Notes/Parte 1/Images/Pasted image 20230501000126.png",
-    "Notes/Parte 1/Images/Pasted image 20230430235621.png",
-    "Notes/Parte 1/Images/Pasted image 20230430235358.png"
+    "projects/part1/courseinfo/public/vite.svg"
   ]
 }
