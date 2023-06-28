@@ -25,6 +25,7 @@ function Content({ content }: ContentProps) {
           <Part key={item.id} part={item} />
         ))}
       </tbody>
+      <Total parts={content} />
     </table>
   );
 }
@@ -39,5 +40,23 @@ function Part({ part }: PartProps) {
       <td>{part.name}</td>
       <td>{part.exercises}</td>
     </tr>
+  );
+}
+
+type TotalProps = {
+  parts: Array<Part>;
+};
+
+function Total({ parts }: TotalProps) {
+  const getTotal = (sum: number, current: Part) => sum + current.exercises;
+  return (
+    <tfoot>
+      <tr>
+        <th>
+          <span>Total of exercises</span>
+        </th>
+        <td>{parts.reduce(getTotal, 0)}</td>
+      </tr>
+    </tfoot>
   );
 }
