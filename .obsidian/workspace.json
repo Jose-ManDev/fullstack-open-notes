@@ -11,8 +11,12 @@
             "id": "5a7ba9170898130f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md"
+              }
             }
           }
         ],
@@ -149,7 +157,6 @@
   },
   "active": "5a7ba9170898130f",
   "lastOpenFiles": [
-    "Notes/Parte 2/A. Renderizando una colección, módulos.md",
     "exercises/Parte 2/course-information/vite.config.ts.timestamp-1687933179693-b2877fca4625a.mjs",
     "exercises/Parte 2/course-information/src/components/Header.tsx",
     "exercises/Parte 2/course-information/src/components",
@@ -160,6 +167,7 @@
     "exercises/Parte 2/course-information/src/utils/course.ts",
     "exercises/Parte 2/course-information/src/utils",
     "exercises/Parte 2/course-information/node_modules/@babel/core/lib/vendor/import-meta-resolve.js.map",
+    "exercises/Parte 2/course-information/node_modules/@babel/core/lib/vendor/import-meta-resolve.js",
     "exercises/Parte 2/course-information/node_modules/update-browserslist-db/README.md",
     "exercises/Parte 2/course-information/node_modules/which/README.md",
     "exercises/Parte 2/course-information/node_modules/which/CHANGELOG.md",
