@@ -8,10 +8,19 @@ function App() {
   ]);
   const [newName, setNewName] = useState("");
 
+  const filterByName = (person: Person) => person.name === newName;
+
+  const isPersonOnList = () => persons.filter(filterByName).length === 0;
+
   const addPerson = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setPersons(persons.concat({ id: persons.length, name: newName }));
-    setNewName("");
+
+    if (isPersonOnList()) {
+      setPersons(persons.concat({ id: persons.length, name: newName }));
+      setNewName("");
+    } else {
+      alert(`${newName} already exists`);
+    }
   };
 
   return (
