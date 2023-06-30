@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
+                "file": "Notes/Parte 2/B. Formularios.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
+                "file": "Notes/Parte 2/B. Formularios.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md",
+                "file": "Notes/Parte 2/B. Formularios.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Parte 2/A. Renderizando una colección, módulos.md"
+                "file": "Notes/Parte 2/B. Formularios.md"
               }
             }
           }
@@ -155,8 +155,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5a7ba9170898130f",
+  "active": "75fc6a074ca636d3",
   "lastOpenFiles": [
+    "Notes/Parte 2/Images/Pasted image 20230630020254.png",
+    "Notes/Parte 2/A. Renderizando una colección, módulos.md",
+    "Notes/Parte 2/B. Formularios.md",
+    "Notes/Parte 2/Images/Pasted image 20230630015643.png",
+    "Notes/Parte 2/Images/Pasted image 20230630014831.png",
+    "Notes/Parte 2/Images/Pasted image 20230630005043.png",
     "exercises/Parte 2/course-information/vite.config.ts.timestamp-1687933179693-b2877fca4625a.mjs",
     "exercises/Parte 2/course-information/src/components/Header.tsx",
     "exercises/Parte 2/course-information/src/components",
@@ -167,7 +173,6 @@
     "exercises/Parte 2/course-information/src/utils/course.ts",
     "exercises/Parte 2/course-information/src/utils",
     "exercises/Parte 2/course-information/node_modules/@babel/core/lib/vendor/import-meta-resolve.js.map",
-    "exercises/Parte 2/course-information/node_modules/@babel/core/lib/vendor/import-meta-resolve.js",
     "exercises/Parte 2/course-information/node_modules/update-browserslist-db/README.md",
     "exercises/Parte 2/course-information/node_modules/which/README.md",
     "exercises/Parte 2/course-information/node_modules/which/CHANGELOG.md",
@@ -191,17 +196,12 @@
     "exercises/Parte 2/course-information/node_modules/color-name/README.md",
     "exercises/Parte 2/course-information/node_modules/file-entry-cache/README.md",
     "exercises/Parte 2/course-information/node_modules/minimatch/README.md",
-    "exercises/Parte 2/course-information/node_modules/jsesc/README.md",
-    "exercises/Parte 2/course-information/node_modules/@humanwhocodes/config-array/README.md",
     "exercises/Parte 2/course-information/src/assets/react.svg",
     "exercises/Parte 2/course-information/public/vite.svg",
     "Notes/Parte 2/Images/Pasted image 20230627211229.png",
     "Notes/Parte 1/Images/Pasted image 20230625190200.png",
     "Notes/Parte 1/Images/Pasted image 20230625185745.png",
     "Notes/Parte 1/Images/Pasted image 20230625001015.png",
-    "exercises/Parte 1/courseinfo/src/assets/react.svg",
-    "exercises/Parte 1/courseinfo/public/vite.svg",
-    "projects/part1/courseinfo/src/assets/react.svg",
-    "projects/part1/courseinfo/public/vite.svg"
+    "exercises/Parte 1/courseinfo/src/assets/react.svg"
   ]
 }
