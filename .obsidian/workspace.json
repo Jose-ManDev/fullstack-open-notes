@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Parte 2/B. Formularios.md",
+                "file": "Notes/Parte 2/D. Alterando datos en el servidor.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Parte 2/B. Formularios.md",
+                "file": "Notes/Parte 2/D. Alterando datos en el servidor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Parte 2/B. Formularios.md",
+                "file": "Notes/Parte 2/D. Alterando datos en el servidor.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Parte 2/B. Formularios.md"
+                "file": "Notes/Parte 2/D. Alterando datos en el servidor.md"
               }
             }
           }
@@ -155,11 +155,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "75fc6a074ca636d3",
+  "active": "5a7ba9170898130f",
   "lastOpenFiles": [
+    "Notes/Parte 2/C. Obteniendo datos desde un servidor.md",
+    "Notes/Parte 2/D. Alterando datos en el servidor.md",
+    "Untitled.md",
+    "Notes/Parte 2/Images/Pasted image 20230702210346.png",
+    "Notes/Parte 2/Images/Pasted image 20230702205426.png",
+    "Notes/Parte 2/Images/Pasted image 20230701005316.png",
+    "Notes/Parte 2/B. Formularios.md",
     "Notes/Parte 2/Images/Pasted image 20230630020254.png",
     "Notes/Parte 2/A. Renderizando una colección, módulos.md",
-    "Notes/Parte 2/B. Formularios.md",
     "Notes/Parte 2/Images/Pasted image 20230630015643.png",
     "Notes/Parte 2/Images/Pasted image 20230630014831.png",
     "Notes/Parte 2/Images/Pasted image 20230630005043.png",
@@ -194,14 +200,8 @@
     "exercises/Parte 2/course-information/node_modules/node-releases/README.md",
     "exercises/Parte 2/course-information/node_modules/@typescript-eslint/type-utils/README.md",
     "exercises/Parte 2/course-information/node_modules/color-name/README.md",
-    "exercises/Parte 2/course-information/node_modules/file-entry-cache/README.md",
-    "exercises/Parte 2/course-information/node_modules/minimatch/README.md",
     "exercises/Parte 2/course-information/src/assets/react.svg",
     "exercises/Parte 2/course-information/public/vite.svg",
-    "Notes/Parte 2/Images/Pasted image 20230627211229.png",
-    "Notes/Parte 1/Images/Pasted image 20230625190200.png",
-    "Notes/Parte 1/Images/Pasted image 20230625185745.png",
-    "Notes/Parte 1/Images/Pasted image 20230625001015.png",
-    "exercises/Parte 1/courseinfo/src/assets/react.svg"
+    "Notes/Parte 2/Images/Pasted image 20230627211229.png"
   ]
 }

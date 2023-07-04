@@ -1,22 +1,22 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import AddPersonForm from "./features/AddPersonForm";
 import PersonTable from "./features/PersonTable";
 import SearchBar from "./components/SearchBar";
+import axios from "axios";
 
 function App() {
-  const [persons, setPersons] = useState<Person[]>([
-    { id: 0, name: "Josh Atkinz", phone: "235-345-23-42" },
-  ]);
+  const [persons, setPersons] = useState<Person[]>([]);
   const [newName, setNewName] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [search, setSearch] = useState("");
   const [filteredPersons, setFilteredPersons] = useState(persons);
 
-  const filterByName = (person: Person) => person.name === newName;
+  const filterByName = (person: Person) =>
+    person.name.toLowerCase() === newName.toLowerCase();
   const searchByName = (person: Person) =>
     person.name.toLowerCase().includes(search.toLowerCase());
 
-  const isPersonOnList = () => persons.filter(filterByName).length === 0;
+  const isPersonOnList = () => persons.some(filterByName);
 
   const addPerson = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,6 +40,15 @@ function App() {
     setFilteredPersons(persons.filter(searchByName));
     setSearch("");
   };
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/persons").then((response) => {
+      setPersons(response.data);
+      setFilteredPersons(response.data);
+    });
+  }, []);
+
+  console.log(persons);
 
   return (
     <div>
