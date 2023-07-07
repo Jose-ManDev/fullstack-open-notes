@@ -19,6 +19,16 @@
       "name": "Mary Poppendieck",
       "phone": "39-23-6423122",
       "id": 4
+    },
+    {
+      "name": "Arthur Hellas",
+      "phone": "024-345611",
+      "id": 5
+    },
+    {
+      "name": "Adrian Kayne",
+      "phone": "023-234522",
+      "id": 6
     }
   ]
 }

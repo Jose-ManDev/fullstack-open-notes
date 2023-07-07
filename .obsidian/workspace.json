@@ -157,8 +157,14 @@
   },
   "active": "5a7ba9170898130f",
   "lastOpenFiles": [
-    "Notes/Parte 2/C. Obteniendo datos desde un servidor.md",
+    "Notes/Parte 2/Images/Pasted image 20230707120822.png",
+    "Notes/Parte 1/A. Introducción a React.md",
     "Notes/Parte 2/D. Alterando datos en el servidor.md",
+    "Notes/Parte 2/Images/Pasted image 20230704161713.png",
+    "Notes/Parte 2/Images/Pasted image 20230704161650.png",
+    "Notes/Parte 2/Images/Pasted image 20230704161606.png",
+    "Notes/Parte 2/Images/Pasted image 20230704161319.png",
+    "Notes/Parte 2/C. Obteniendo datos desde un servidor.md",
     "Untitled.md",
     "Notes/Parte 2/Images/Pasted image 20230702210346.png",
     "Notes/Parte 2/Images/Pasted image 20230702205426.png",
@@ -168,7 +174,6 @@
     "Notes/Parte 2/A. Renderizando una colección, módulos.md",
     "Notes/Parte 2/Images/Pasted image 20230630015643.png",
     "Notes/Parte 2/Images/Pasted image 20230630014831.png",
-    "Notes/Parte 2/Images/Pasted image 20230630005043.png",
     "exercises/Parte 2/course-information/vite.config.ts.timestamp-1687933179693-b2877fca4625a.mjs",
     "exercises/Parte 2/course-information/src/components/Header.tsx",
     "exercises/Parte 2/course-information/src/components",
@@ -197,11 +202,6 @@
     "exercises/Parte 2/course-information/node_modules/@typescript-eslint/typescript-estree/README.md",
     "exercises/Parte 2/course-information/node_modules/@ampproject/remapping/README.md",
     "exercises/Parte 2/course-information/node_modules/@typescript-eslint/scope-manager/README.md",
-    "exercises/Parte 2/course-information/node_modules/node-releases/README.md",
-    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/type-utils/README.md",
-    "exercises/Parte 2/course-information/node_modules/color-name/README.md",
-    "exercises/Parte 2/course-information/src/assets/react.svg",
-    "exercises/Parte 2/course-information/public/vite.svg",
-    "Notes/Parte 2/Images/Pasted image 20230627211229.png"
+    "exercises/Parte 2/course-information/node_modules/node-releases/README.md"
   ]
 }

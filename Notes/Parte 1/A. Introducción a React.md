@@ -1,4 +1,4 @@
-La forma más fácil de crear una página web con React es usando una herramienta llamada [[https://github.com/facebook/create-react-app|create-react-app]] que se puede instalar usando *npm*. Igualmente se puede usar una nueva herramienta llamada [[https://vitejs.dev/|Vite]].
+La forma más fácil de crear una página web con React es usando una herramienta llamada [create-react-app](https://github.com/facebook/create-react-app) que se puede instalar usando *npm*. Igualmente se puede usar una nueva herramienta llamada [Vite](https://vitejs.dev/).
 
 Para crear una nueva aplicación llamada `part1` se debe ejecutar el siguiente comando en la consola:
 

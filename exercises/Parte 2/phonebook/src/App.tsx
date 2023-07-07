@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import AddPersonForm from "./features/AddPersonForm";
 import PersonTable from "./features/PersonTable";
 import SearchBar from "./components/SearchBar";
-import axios from "axios";
+import PersonApi from "./api/personsApi";
 
 function App() {
   const [persons, setPersons] = useState<Person[]>([]);
@@ -21,15 +21,18 @@ function App() {
   const addPerson = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (isPersonOnList()) {
-      setPersons(
-        persons.concat({ id: persons.length, name: newName, phone: newPhone })
-      );
-      setFilteredPersons(
-        persons.concat({ id: persons.length, name: newName, phone: newPhone })
-      );
-      setNewName("");
-      setNewPhone("");
+    if (!isPersonOnList()) {
+      const newPerson = {
+        name: newName,
+        phone: newPhone,
+      };
+      PersonApi.create(newPerson).then((returnedPerson) => {
+        const newPersons = persons.concat(returnedPerson);
+        setPersons(newPersons);
+        setFilteredPersons(newPersons);
+        setNewName("");
+        setNewPhone("");
+      });
     } else {
       alert(`${newName} already exists`);
     }
@@ -42,13 +45,11 @@ function App() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3000/persons").then((response) => {
-      setPersons(response.data);
-      setFilteredPersons(response.data);
+    PersonApi.getAll().then((initialPersons) => {
+      setPersons(initialPersons);
+      setFilteredPersons(initialPersons);
     });
   }, []);
-
-  console.log(persons);
 
   return (
     <div>
