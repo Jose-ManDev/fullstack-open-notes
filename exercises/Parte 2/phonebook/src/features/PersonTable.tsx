@@ -1,8 +1,14 @@
+import Button from "../components/Button";
+
 type PersonListProps = {
   persons: Person[];
+  handleRemove: (id: number) => void;
 };
 
-export default function PersonTable({ persons }: PersonListProps) {
+export default function PersonTable({
+  persons,
+  handleRemove,
+}: PersonListProps) {
   return (
     <table>
       <thead>
@@ -13,7 +19,7 @@ export default function PersonTable({ persons }: PersonListProps) {
       </thead>
       <tbody>
         {persons.map((person) => (
-          <Person key={person.id} person={person} />
+          <Person key={person.id} person={person} handleRemove={handleRemove} />
         ))}
       </tbody>
     </table>
@@ -22,13 +28,17 @@ export default function PersonTable({ persons }: PersonListProps) {
 
 type PersonProps = {
   person: Person;
+  handleRemove: (id: number) => void;
 };
 
-function Person({ person }: PersonProps) {
+function Person({ person, handleRemove }: PersonProps) {
   return (
     <tr>
       <td>{person.name}</td>
       <td>{person.phone}</td>
+      <td>
+        <Button handleClick={() => handleRemove(person.id)}>Remove</Button>
+      </td>
     </tr>
   );
 }

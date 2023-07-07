@@ -1,8 +1,9 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState, MouseEventHandler } from "react";
 import AddPersonForm from "./features/AddPersonForm";
 import PersonTable from "./features/PersonTable";
 import SearchBar from "./components/SearchBar";
 import PersonApi from "./api/personsApi";
+import personsApi from "./api/personsApi";
 
 function App() {
   const [persons, setPersons] = useState<Person[]>([]);
@@ -15,6 +16,7 @@ function App() {
     person.name.toLowerCase() === newName.toLowerCase();
   const searchByName = (person: Person) =>
     person.name.toLowerCase().includes(search.toLowerCase());
+  const searchById = (id: number, person: Person) => person.id === id;
 
   const isPersonOnList = () => persons.some(filterByName);
 
@@ -35,6 +37,19 @@ function App() {
       });
     } else {
       alert(`${newName} already exists`);
+    }
+  };
+
+  const removePerson = (id: number) => {
+    const person = persons.find((person) => searchById(id, person));
+    const userConfirm = window.confirm(`Delete ${person?.name}`);
+
+    if (userConfirm) {
+      personsApi.remove(id).then((response) => {
+        const newPersons = persons.filter((person) => person.id !== id);
+        setPersons(newPersons);
+        setFilteredPersons(newPersons);
+      });
     }
   };
 
@@ -68,7 +83,7 @@ function App() {
         handleSubmit={addPerson}
       />
       <h2>Numbers</h2>
-      <PersonTable persons={filteredPersons} />
+      <PersonTable persons={filteredPersons} handleRemove={removePerson} />
     </div>
   );
 }
