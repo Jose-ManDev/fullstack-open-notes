@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState, MouseEventHandler } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import AddPersonForm from "./features/AddPersonForm";
 import PersonTable from "./features/PersonTable";
 import SearchBar from "./components/SearchBar";
@@ -32,12 +32,29 @@ function App() {
         const newPersons = persons.concat(returnedPerson);
         setPersons(newPersons);
         setFilteredPersons(newPersons);
-        setNewName("");
-        setNewPhone("");
       });
     } else {
-      alert(`${newName} already exists`);
+      const personToUpdate = persons.find(filterByName) as Person;
+      const userConfirm = window.confirm(
+        `${personToUpdate?.name} is already in the phonebook, replace the old number with a new one?`
+      );
+
+      if (userConfirm) {
+        const updatedPerson = { ...personToUpdate, phone: newPhone };
+        PersonApi.update(personToUpdate?.id, updatedPerson).then(
+          (returnedPerson) => {
+            const newPersons = persons.map((person) =>
+              person.id !== personToUpdate.id ? person : returnedPerson
+            );
+            setPersons(newPersons);
+            setFilteredPersons(newPersons);
+          }
+        );
+      }
     }
+
+    setNewName("");
+    setNewPhone("");
   };
 
   const removePerson = (id: number) => {
@@ -45,7 +62,7 @@ function App() {
     const userConfirm = window.confirm(`Delete ${person?.name}`);
 
     if (userConfirm) {
-      personsApi.remove(id).then((response) => {
+      personsApi.remove(id).then(() => {
         const newPersons = persons.filter((person) => person.id !== id);
         setPersons(newPersons);
         setFilteredPersons(newPersons);
