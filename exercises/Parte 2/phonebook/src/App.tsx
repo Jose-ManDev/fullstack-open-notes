@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import AddPersonForm from "./features/AddPersonForm";
 import PersonTable from "./features/PersonTable";
 import SearchBar from "./components/SearchBar";
+import Notification from "./components/Notification";
 import PersonApi from "./api/personsApi";
 import personsApi from "./api/personsApi";
 
@@ -11,6 +12,9 @@ function App() {
   const [newPhone, setNewPhone] = useState("");
   const [search, setSearch] = useState("");
   const [filteredPersons, setFilteredPersons] = useState(persons);
+
+  const [type, setType] = useState<"error" | "success" | null>(null);
+  const [message, setMessage] = useState("");
 
   const filterByName = (person: Person) =>
     person.name.toLowerCase() === newName.toLowerCase();
@@ -32,6 +36,9 @@ function App() {
         const newPersons = persons.concat(returnedPerson);
         setPersons(newPersons);
         setFilteredPersons(newPersons);
+        setType("success");
+        setMessage(`${returnedPerson.name} has been added to the phonebook`);
+        setTimeout(() => setType(null), 2500);
       });
     } else {
       const personToUpdate = persons.find(filterByName) as Person;
@@ -48,6 +55,9 @@ function App() {
             );
             setPersons(newPersons);
             setFilteredPersons(newPersons);
+            setType("success");
+            setMessage(`${returnedPerson.name} has been updated`);
+            setTimeout(() => setType(null), 2500);
           }
         );
       }
@@ -62,11 +72,24 @@ function App() {
     const userConfirm = window.confirm(`Delete ${person?.name}`);
 
     if (userConfirm) {
-      personsApi.remove(id).then(() => {
-        const newPersons = persons.filter((person) => person.id !== id);
-        setPersons(newPersons);
-        setFilteredPersons(newPersons);
-      });
+      personsApi
+        .remove(id)
+        .then(() => {
+          const newPersons = persons.filter((person) => person.id !== id);
+          setPersons(newPersons);
+          setFilteredPersons(newPersons);
+          setType("success");
+          setMessage(`${person?.name} was deleted`);
+          setTimeout(() => setType(null), 2500);
+        })
+        .catch(() => {
+          setType("error");
+          setMessage(`${person?.name} is already deleted from the server`);
+          const newPersons = persons.filter((person) => person.id !== id);
+          setPersons(newPersons);
+          setFilteredPersons(newPersons);
+          setTimeout(() => setType(null), 2500);
+        });
     }
   };
 
@@ -100,6 +123,7 @@ function App() {
         handleSubmit={addPerson}
       />
       <h2>Numbers</h2>
+      <Notification type={type} message={message} />
       <PersonTable persons={filteredPersons} handleRemove={removePerson} />
     </div>
   );
