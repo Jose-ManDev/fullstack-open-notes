@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { initialPersons } from "./public/persons";
-import { log } from "console";
+import generateId from "./utils/generateId";
 
 const dotenv = require("dotenv");
 const express = require("express");
@@ -10,6 +10,8 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+app.use(express.json());
 
 app.get("/api/persons", (request: Request, response: Response) => {
   response.json(persons);
@@ -39,6 +41,26 @@ app.delete("/api/persons/:id", (request: Request, response: Response) => {
   persons = persons.filter((person) => person.id !== ID);
 
   response.status(204).end();
+});
+
+app.post("/api/persons", (request: Request, response: Response) => {
+  const body = request.body;
+
+  if (!body.name || !body.phone) {
+    return response.status(400).json({
+      error: "name or number are missing",
+    });
+  }
+
+  const person: Person = {
+    id: generateId(),
+    name: body.name,
+    phone: body.phone,
+  };
+
+  persons = persons.concat(person);
+
+  response.json(person);
 });
 
 app.listen(PORT, () => {
