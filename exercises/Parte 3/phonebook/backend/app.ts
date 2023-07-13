@@ -14,6 +14,17 @@ app.get("/api/persons", (request: Request, response: Response) => {
   response.json(persons);
 });
 
+app.get("/api/persons/:id", (request: Request, response: Response) => {
+  const ID = Number(request.params.id);
+  const person = persons.find((person) => person.id === ID);
+
+  if (person) {
+    response.json(person);
+  } else {
+    response.status(404).end();
+  }
+});
+
 app.get("/info", (request: Request, response: Response) => {
   response.send(
     `<div><p>Phonebook has info for ${
