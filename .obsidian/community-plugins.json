@@ -3,5 +3,7 @@
   "tabout",
   "obsidian-scroll-offset",
   "obsidian-codemirror-options",
-  "cm-editor-syntax-highlight-obsidian"
+  "cm-editor-syntax-highlight-obsidian",
+  "auto-hide-cursor",
+  "table-editor-obsidian"
 ]
