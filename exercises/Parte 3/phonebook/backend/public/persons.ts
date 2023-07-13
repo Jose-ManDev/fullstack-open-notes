@@ -1,4 +1,4 @@
-export const persons = [
+export const initialPersons: Person[] = [
   { id: 1, name: "Dedra Askew", phone: "546-552-9775" },
   { id: 2, name: "Thain Ilchuk", phone: "562-182-9856" },
   { id: 3, name: "Rutledge Bonnin", phone: "630-747-4359" },
