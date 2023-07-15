@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { initialPersons } from "./public/persons";
 import generateId from "./utils/generateId";
+import { TokenCallbackFn } from "morgan";
 
 const dotenv = require("dotenv");
 const express = require("express");
@@ -13,7 +14,32 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
-app.use(morgan("tiny"));
+app.use(
+  morgan(function (tokens: any, req: Request, res: Response) {
+    if (req.method === "POST") {
+      return [
+        tokens.method(req, res),
+        tokens.url(req, res),
+        tokens.status(req, res),
+        tokens.res(req, res, "content-length"),
+        "-",
+        tokens["response-time"](req, res),
+        "ms",
+        JSON.stringify(req.body),
+      ].join(" ");
+    } else {
+      return [
+        tokens.method(req, res),
+        tokens.url(req, res),
+        tokens.status(req, res),
+        tokens.res(req, res, "content-length"),
+        "-",
+        tokens["response-time"](req, res),
+        "ms",
+      ].join(" ");
+    }
+  })
+);
 
 app.get("/api/persons", (request: Request, response: Response) => {
   response.json(persons);
