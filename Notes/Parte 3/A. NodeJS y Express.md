@@ -104,7 +104,6 @@ const app = http.createServer((request, response) => {
 	response.writeHead(200, { "Content-Type": "text/plain" });
 	response.end("Hello, world");
 });
-
 ```
 
 El código usa el método `createServer()` del módulo `http` para crear un nuevo servidor web. Un event handler es registrado en el servidor que es llamado cada vez que una solicitud HTTP sea realizada a la dirección http://localhost:3000.
@@ -525,3 +524,66 @@ important: body.important || false
 ```
 
 # Acerca de los tipos de peticiones HTTP
+
+El estándar HTTP nos habla acerca de dos propiedades relacionadas a los tipos de solicitudes, **seguridad** e **idempotencia**.
+
+La solicitud HTTP GET debe ser segura:
+> En particular, la convención ha establecido que los métodos GET y HEAD no deben tener el significado de hacer una acción distinta a la recuperación. Estos métodos deben considerarse "seguros".
+
+La seguridad significa que ejecutar una solicitud no debe causar algún *efecto secundario* en el servidor, donde los efectos secundarios son aquellos donde el estado de la base de datos cambia como resultado de la solicitud, y la solicitud solo debe regresar datos que ya existen en el servidor.
+
+Nada puede garantizar que una solicitud HTTP GET sea segura, esto solo es una recomendación que está definida en el estándar HTTP. Si nos adherimos a los principios RESTful en nuestra API, las solicitudes GET siempre deben de ser usadas en una forma que sea seguras.
+
+El estándar HTTP también habla de las solicitudes HTTP HEAD. En la práctica, las solicitudes HEAD deben funcionar exactamente igual que las GET pero estas no regresan nada aparte del código de estado y los headers de respuesta. El cuerpo de la respuesta no debe devolverse cuando se hace una solicitud HEAD.
+
+Igualmente, todas las solicitudes HTTP aparte de POST debe ser *idempotentes*:
+
+> Los métodos también pueden tener la propiedad de "idempotencia" tal que (aparte de los errores y problemas de expiración) los efectos secundarios de $N > 0$ solicitudes idénticas sea el mismo que el de una sola solicitud. Los métodos GET, HEAD, PUT y DELETE comparten esta propiedad.
+
+Esto significa que si una solicitud no genera efectos secundarios el resultado debe ser el mismo sin importar cuantas veces sea enviada la solicitud.
+
+Al igual que la seguridad, la idempotencia es solo una recomendación del estándar HTTP y no algo que se puede garantizar basándose en el tipo de la solicitud. Sin embargo, si una API se adhiere a los principios RESTful las solicitudes GET, HEAD, PUT y DELETE deben usarse de tal forma que sean idempotentes.
+
+POST es la única solicitud que no es segura ni idempotente.
+
+# Middleware
+
+El json-parser de Express que se usó antes es lo que llamamos [middleware](http://expressjs.com/en/guide/using-middleware.html). Los middleware son funciones que se pueden usar para manejar objetos `request` y `response`. json-parser toma los datos crudos que están guardados en los objetos `request`, los convierte en un objeto de JavaScript y los asigna a un objeto `request` como una propiedad `body`.
+
+El la práctica se pueden usar varios middleware al mismo tiempo, de hecho, cuando se tiene más de uno se van ejecutando uno por uno en el orden que fueron puestos en Express.
+
+Lo siguiente es crear un middleware que imprima información acerca de la solicitud que es enviada al servidor. Las funciones middleware reciben tres parámetros:
+
+```ts
+const requestLogger = (request, response, next) => {
+	console.log(`Method: ${request.method}`);
+	console.log(`Path: ${request.path}`);
+	console.log(`Body: ${request.body}`);
+	console.log("---");
+	next();
+}
+```
+
+Al final de la función la siguiente función ,`next()`, que fue pasada como parámetro es llamada. La función `next()` le da el control al próximo middleware.
+
+Los middleware se usan de la siguiente manera:
+
+```ts
+app.use(requestLogger);
+```
+
+Dado que los middleware son usados en el orden que son definidos, `requestLogger` debe de ir después de `json-parser`. De no ser así `request.body` no estaría definido al momento de ejecutar `requestLogger`.
+
+Los middleware deben de ser usados antes de las rutas si se quiere que se ejecuten antes de que los event handlers de las rutas sean llamados. Igualmente, hay situaciones donde se definen funciones middleware después de las rutas, esto significa que los middleware serán ejecutados si ninguna ruta maneja la solicitud HTTP.
+
+El siguiente middleware se puede agregar después de las rutas pues será usado para atrapar todas las solicitudes a rutas que no han sido hechas y enviará al cliente un error en formato JSON:
+
+```ts
+const unknowEndpoint = (request, response) => {
+	response.status(404).send({
+		error: "unknow endpoint"
+	});
+};
+
+app.use(unknowEndpoint);
+```

@@ -4,6 +4,7 @@ import generateId from "./utils/generateId";
 
 const dotenv = require("dotenv");
 const express = require("express");
+const morgan = require("morgan");
 let persons: Person[] = initialPersons;
 
 dotenv.config();
@@ -12,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
+app.use(morgan("tiny"));
 
 app.get("/api/persons", (request: Request, response: Response) => {
   response.json(persons);
