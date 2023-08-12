@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { initialPersons } from "./public/persons";
 import generateId from "./utils/generateId";
-import { TokenCallbackFn } from "morgan";
 
 const dotenv = require("dotenv");
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 let persons: Person[] = initialPersons;
 
 dotenv.config();
@@ -13,6 +13,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+app.use(cors());
 app.use(express.json());
 app.use(
   morgan(function (tokens: any, req: Request, res: Response) {

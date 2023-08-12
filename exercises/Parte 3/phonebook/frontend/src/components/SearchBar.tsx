@@ -1,24 +1,36 @@
-import { ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import Form from "./Form";
 import Input from "./Input";
 import Button from "./Button";
 
 type SearchBarProps = {
-  value: string;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSearch: (e: FormEvent<HTMLFormElement>) => void;
+  name: string;
+  label: string;
+  handleSearch: (s: string) => void;
 };
 
 export default function SearchBar({
-  value,
-  handleChange,
+  name,
+  label,
   handleSearch,
 }: SearchBarProps) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleSearch(searchTerm);
+    setSearchTerm("");
+  };
   return (
-    <Form handleSubmit={handleSearch}>
+    <Form handleSubmit={handleSubmit}>
       <Input
-        label={"Filter shown with"}
-        value={value}
+        name={name}
+        label={label}
+        value={searchTerm}
         handleChange={handleChange}
       />
       <Button type="submit">Search</Button>

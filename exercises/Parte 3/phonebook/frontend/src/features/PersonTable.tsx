@@ -1,43 +1,54 @@
+import { useState, useEffect, FormEvent } from "react";
 import Button from "../components/Button";
+import { usePersonContext } from "../context/PersonContext";
+import { usePersonRequestsContext } from "../context/PersonRequestsContext";
+import SearchBar from "../components/SearchBar";
+import { Filter } from "../utils/arrayUtils";
 
-type PersonListProps = {
-  persons: Person[];
-  handleRemove: (id: number) => void;
-};
+export default function PersonTable() {
+  const persons = usePersonContext();
+  const [searchTerm, setSearchTerm] = useState("");
 
-export default function PersonTable({
-  persons,
-  handleRemove,
-}: PersonListProps) {
+  const handleSearch = (search: string) => {
+    setSearchTerm(search);
+  };
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        {persons.map((person) => (
-          <Person key={person.id} person={person} handleRemove={handleRemove} />
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <SearchBar
+        name="search_person"
+        label="Search"
+        handleSearch={handleSearch}
+      />
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          {persons.filter(Filter.byString(searchTerm)).map((person) => (
+            <Person key={person.id} person={person} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 type PersonProps = {
   person: Person;
-  handleRemove: (id: number) => void;
 };
 
-function Person({ person, handleRemove }: PersonProps) {
+function Person({ person }: PersonProps) {
+  const { updatePerson, deletePerson } = usePersonRequestsContext();
+
   return (
     <tr>
       <td>{person.name}</td>
       <td>{person.phone}</td>
       <td>
-        <Button handleClick={() => handleRemove(person.id)}>Remove</Button>
+        <Button handleClick={() => deletePerson(person.id)}>Remove</Button>
       </td>
     </tr>
   );

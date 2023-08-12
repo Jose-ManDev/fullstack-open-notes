@@ -6,5 +6,9 @@ type FormSubmit = {
 };
 
 export default function Form({ handleSubmit, children }: FormSubmit) {
-  return <form onSubmit={handleSubmit}>{children}</form>;
+  return (
+    <form className="my-2" onSubmit={handleSubmit}>
+      {children}
+    </form>
+  );
 }

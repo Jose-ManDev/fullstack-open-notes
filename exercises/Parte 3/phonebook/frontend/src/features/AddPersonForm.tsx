@@ -1,32 +1,50 @@
-import { FormEvent, ChangeEvent } from "react";
+import { FormEvent, ChangeEvent, useState } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { usePersonRequestsContext } from "../context/PersonRequestsContext";
 
-type AddPersonFormProps = {
-  nameValue: string;
-  phoneValue: string;
-  handleNameChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handlePhoneChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
-};
+export default function AddPersonForm() {
+  const [personName, setPersonName] = useState("");
+  const [personPhone, setPersonPhone] = useState("");
 
-export default function AddPersonForm({
-  nameValue,
-  phoneValue,
-  handleNameChange,
-  handlePhoneChange,
-  handleSubmit,
-}: AddPersonFormProps) {
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPersonName(e.target.value);
+  };
+
+  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPersonPhone(e.target.value);
+  };
+
+  const { addPerson } = usePersonRequestsContext();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    addPerson({ name: personName, phone: personPhone });
+    setPersonName("");
+    setPersonPhone("");
+  };
   return (
     <Form handleSubmit={handleSubmit}>
-      <Input label="Name:" value={nameValue} handleChange={handleNameChange} />
       <Input
+        name="name"
+        label="Name:"
+        required
+        value={personName}
+        handleChange={handleNameChange}
+      />
+      <Input
+        name="phone"
         label="Phone:"
-        value={phoneValue}
+        required
+        value={personPhone}
         handleChange={handlePhoneChange}
       />
-      <Button type="submit">Add</Button>
+      <div className="flex justify-center">
+        <Button type="submit" primary>
+          Add
+        </Button>
+      </div>
     </Form>
   );
 }
