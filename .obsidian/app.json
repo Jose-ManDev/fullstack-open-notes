@@ -2,8 +2,8 @@
   "readableLineLength": true,
   "showLineNumber": false,
   "spellcheck": true,
-  "spellcheckLanguages": [
-    "en-US",
-    "es-MX"
+  "spellcheckLanguages": null,
+  "userIgnoreFilters": [
+    "/^node_modules(\\/.*)?$/"
   ]
 }

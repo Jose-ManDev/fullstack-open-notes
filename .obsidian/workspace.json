@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Parte 3/A. NodeJS y Express.md",
+                "file": "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Parte 3/A. NodeJS y Express.md",
+                "file": "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Parte 3/A. NodeJS y Express.md",
+                "file": "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Parte 3/A. NodeJS y Express.md"
+                "file": "Notes/Parte 3/B. Subiendo la aplicación a internet.md"
               }
             }
           }
@@ -158,36 +158,37 @@
   },
   "active": "6f28d1aa33b3af6c",
   "lastOpenFiles": [
-    "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
+    "exercises/Parte 3/phonebook/backend/dist/app.js",
+    "exercises/Parte 3/phonebook/backend/dist/utils/generateId.js",
+    "exercises/Parte 3/phonebook/backend/dist/utils",
+    "exercises/Parte 3/phonebook/backend/dist/public/persons.js",
+    "exercises/Parte 3/phonebook/backend/dist/public",
+    "exercises/Parte 3/phonebook/backend/dist/assets/index-51b6ce7e.css",
+    "exercises/Parte 3/phonebook/backend/dist/assets/index-09320083.js",
+    "exercises/Parte 3/phonebook/backend/dist/assets",
+    "exercises/Parte 3/phonebook/backend/dist/vite.svg",
+    "exercises/Parte 3/phonebook/backend/dist/index.html",
+    "exercises/Parte 3/phonebook/backend/dist",
+    "Notes/Parte 3/Images/Pasted image 20230729180804.png",
+    "Notes/Parte 3/Images/Pasted image 20230718211555.png",
+    "Notes/Parte 3/Images/Pasted image 20230718210948.png",
+    "Notes/Parte 3/Images/Pasted image 20230715215941.png",
     "Notes/Parte 3/A. NodeJS y Express.md",
+    "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
     "Notes/Parte 3/Images/Pasted image 20230712233458.png",
     "Notes/Parte 3/Images/Pasted image 20230712211137.png",
     "Notes/Parte 3/Images/Pasted image 20230712210841.png",
     "Notes/Parte 3/Images/Pasted image 20230712191249.png",
     "Notes/Parte 3/Images/Pasted image 20230712001301.png",
-    "Notes/Parte 3/Images/Pasted image 20230710183235.png",
     "Notes/Parte 2/E. Agregando estilos a una aplicación de React.md",
     "Notes/Parte 3/Images",
-    "Notes/Parte 3",
-    "Notes/Parte 2/Images/Pasted image 20230709012056.png",
     "docs/rules/no-arrow-function-lifecycle.md",
-    "docs/rules",
-    "docs",
     "Notes/Parte 2/D. Alterando datos en el servidor.md",
-    "Notes/Parte 2/Images/Pasted image 20230707120822.png",
     "Notes/Parte 1/A. Introducción a React.md",
-    "Notes/Parte 2/Images/Pasted image 20230704161713.png",
-    "Notes/Parte 2/Images/Pasted image 20230704161650.png",
     "Notes/Parte 2/C. Obteniendo datos desde un servidor.md",
     "Untitled.md",
     "Notes/Parte 2/B. Formularios.md",
     "Notes/Parte 2/A. Renderizando una colección, módulos.md",
-    "exercises/Parte 2/course-information/vite.config.ts.timestamp-1687933179693-b2877fca4625a.mjs",
-    "exercises/Parte 2/course-information/src/components/Header.tsx",
-    "exercises/Parte 2/course-information/src/components",
-    "exercises/Parte 2/course-information/src/features/Course.tsx",
-    "exercises/Parte 2/course-information/src/features",
-    "exercises/Parte 2/course-information/src/types/course.d.ts",
     "exercises/Parte 2/course-information/node_modules/update-browserslist-db/README.md",
     "exercises/Parte 2/course-information/node_modules/which/README.md",
     "exercises/Parte 2/course-information/node_modules/which/CHANGELOG.md",
@@ -202,7 +203,6 @@
     "exercises/Parte 2/course-information/node_modules/@typescript-eslint/types/README.md",
     "exercises/Parte 2/course-information/node_modules/react/README.md",
     "exercises/Parte 2/course-information/node_modules/react-dom/README.md",
-    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/utils/README.md",
-    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/typescript-estree/README.md"
+    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/utils/README.md"
   ]
 }
