@@ -25,11 +25,12 @@ export default function AddPersonForm() {
     setPersonPhone("");
   };
   return (
-    <Form handleSubmit={handleSubmit}>
+    <Form className="col-span-1 mb-4" handleSubmit={handleSubmit}>
       <Input
         name="name"
         label="Name:"
         required
+        styles={{ container: "flex flex-col mb-4" }}
         value={personName}
         handleChange={handleNameChange}
       />
@@ -37,6 +38,7 @@ export default function AddPersonForm() {
         name="phone"
         label="Phone:"
         required
+        styles={{ container: "flex flex-col mb-4" }}
         value={personPhone}
         handleChange={handlePhoneChange}
       />

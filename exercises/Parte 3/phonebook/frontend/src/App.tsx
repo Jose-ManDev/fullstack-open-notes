@@ -1,17 +1,20 @@
 import { NotificationProvider } from "./context/NotificationProvider";
 import { PersonProvider } from "./context/PersonProvider";
 import AddPersonForm from "./features/AddPersonForm";
-import PersonTable from "./features/PersonTable";
+import PersonList from "./features/PersonList";
 
 function App() {
   return (
-    <div className="container px-4">
-      <h1 className="my-1 font-bold text-xl">The Phonebook</h1>
+    <div className="relative container">
       <NotificationProvider>
         <PersonProvider>
-          <main>
+          <main className="px-4 max-h-screen grid justify-center md:grid sm:grid-cols-3 sm:grid-row-2 sm:gap-6 sm:items-center">
+            <h1 className="py-1 font-bold text-2xl sm:row-span-1 sm:col-span-3 sm:h-1/5">
+              The Phonebook
+            </h1>
+
             <AddPersonForm />
-            <PersonTable />
+            <PersonList />
           </main>
         </PersonProvider>
       </NotificationProvider>

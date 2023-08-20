@@ -31,6 +31,12 @@ export function NotificationProvider({ children }: NotificationProviderProps) {
     );
   };
 
+  const removeNotification = (id: string) => {
+    setNotifications((prevNotifications) =>
+      prevNotifications.filter((notification) => notification.id !== id)
+    );
+  };
+
   useEffect(() => {
     const lastNotification = notifications[notifications.length - 1];
 
@@ -45,7 +51,10 @@ export function NotificationProvider({ children }: NotificationProviderProps) {
 
   return (
     <NotificationContext.Provider value={createNotification}>
-      <NotificationContainer notifications={notifications} />
+      <NotificationContainer
+        notifications={notifications}
+        handleDeletion={removeNotification}
+      />
       {children}
     </NotificationContext.Provider>
   );

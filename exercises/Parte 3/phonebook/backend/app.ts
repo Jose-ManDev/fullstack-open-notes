@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("./dist"));
 app.use(
   morgan(function (tokens: any, req: Request, res: Response) {
     if (req.method === "POST") {

@@ -5,6 +5,7 @@ type ButtonProps = {
   type?: "button" | "submit" | "reset";
   primary?: boolean;
   isDisabled?: boolean;
+  styles?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   children: ReactNode;
 };
@@ -14,19 +15,22 @@ export default function Button({
   primary = false,
   isDisabled = false,
   handleClick,
+  styles,
   children,
 }: ButtonProps) {
-  const styles = {
-    base: "max-w-1/2 min-w-max px-2 py-1 grow font-medium tracking-wider uppercase hover:bg-slate-100 transition-colors",
+  const defaultStyles = {
+    base: "rounded-sm max-w-1/2 min-w-max px-2 py-1 font-medium tracking-wider uppercase hover:brightness-90 transition-all",
     primary: "bg-gray-200 hover:bg-gray-300",
     isDisabled: "opacity-40",
   };
 
   const className = classNames(
-    styles.base,
-    primary && styles.primary,
-    isDisabled && styles.isDisabled
+    defaultStyles.base,
+    primary && defaultStyles.primary,
+    isDisabled && defaultStyles.isDisabled,
+    styles || false
   );
+
   return (
     <button
       className={className}

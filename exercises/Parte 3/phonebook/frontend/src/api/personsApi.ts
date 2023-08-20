@@ -33,7 +33,7 @@ export type PersonAction =
 
 type DispatchPerson = (action: PersonAction) => void;
 
-const BASE_URL = "http://localhost:3000/api/persons";
+const BASE_URL = "/api/persons";
 
 export default class PersonsApi {
   static async getAllPersons(dispatch: DispatchPerson) {
