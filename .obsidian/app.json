@@ -1,9 +1,10 @@
 {
-  "readableLineLength": true,
+  "readableLineLength": false,
   "showLineNumber": false,
   "spellcheck": true,
   "spellcheckLanguages": null,
   "userIgnoreFilters": [
-    "/^node_modules(\\/.*)?$/"
+    "/^node_modules(\\/.*)?$/",
+    "exercises/"
   ]
 }

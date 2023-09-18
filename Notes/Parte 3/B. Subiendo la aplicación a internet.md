@@ -1,4 +1,4 @@
-Ahora es momento de conectar el frontend con el backend, ya que la URL ha cambiado ligeramente es momento de cambiarla:
+Ahora es momento de conectar el front-end con el back-end, ya que la URL ha cambiado ligeramente es momento de cambiarla:
 
 ```tsx
 import axios from "axios";
