@@ -416,7 +416,7 @@ El parámetro `savedNote` en la función callback es la nota recién creada y gu
 response.json(savedNote);
 ```
 
-Al usar el método de Mongoose [`fetchById`](https://mongoosejs.com/docs/api/model.html#model_Model-findById) para buscar una sola nota se puede cambiar el handler de la siguiente manera:
+Al usar el método de Mongoose [`findById`](https://mongoosejs.com/docs/api/model.html#model_Model-findById) para buscar una sola nota se puede cambiar el handler de la siguiente manera:
 
 ```ts
 app.get("/api/notes/:id", (request, response) => {
@@ -425,3 +425,204 @@ app.get("/api/notes/:id", (request, response) => {
 	});
 });
 ```
+
+# Manejo de errores
+
+Si queremos visitar la URL de una nota que no existe, la respuesta será `null`. Para cambiar este comportamiento solo se debe agregar un bloque que se encargue de que el servidor responda con un error 404 cuando el elemento buscado no exista, además, se agregará un bloque `catch` que se encargue de los casos donde la promesa regresada por `finById` sea rechazada:
+
+```ts
+app.get("/api/notes/:id", (request, response) => {
+	Note.findById(request.params.id)
+		.then(note => {
+			if (note) {
+				response.json(note);
+			} else {
+				response.status(404).end();
+			}
+		})
+		.catch(error => {
+			console.log(error);
+			response.status(500).end();
+		});
+});
+```
+
+Cuando ninguna nota corresponde con la información buscada, `note` es `null`, por lo que el bloque `else` es ejecutado y el servidor responde con el código de estado *404 not found*. Si la promesa regresada por `findById` es rechazada, la respuesta tendrá el código de estado *500 internal server error*. La consola mostrará más información al respecto.
+
+Existe un último error que se debe de manejar, este es, cuando la id no coincide con el formato de identificadores de MongoDB. Si hacemos una solicitud a la URL `/api/notes/someInvalidId` se nos mostrará el siguiente mensaje:
+
+```
+Method: GET
+Path:   /api/notes/someInvalidId
+Body:   {}
+---
+{ CastError: Cast to ObjectId failed for value "someInvalidId" at path "_id"
+    at CastError (/Users/mluukkai/opetus/_fullstack/osa3-muisiinpanot/node_modules/mongoose/lib/error/cast.js:27:11)
+    at ObjectId.cast (/Users/mluukkai/opetus/_fullstack/osa3-muisiinpanot/node_modules/mongoose/lib/schema/objectid.js:158:13)
+    ...
+```
+
+Al usar una id con mal formato la promesa será rechazada, lo que provocará que el bloque `catch` sea ejecutando informando que este es un error interno del servidor. Para evitar esto se puede realizar la siguiente modificación:
+
+```ts
+app.get("/api/notes/:id", (request, response) => {
+	Note.findById(request.params.id)
+		.then(note => {
+			if (note) {
+				response.json(note);
+			} else {
+				response.status(404).end();
+			}
+		})
+		.catch(error => {
+			console.log(error);
+			response.status(400).send({ error: "malformed id" });
+		});
+});
+```
+
+De esta forma si la petición es rechazada debido a un formato inválido de id se ejecutará el código dentro del bloque catch y lanzará el código de estado *400 Bad Request*, que es el correcto para este tipo de situaciones:
+
+> La solicitud podría no ser entendida por el servidor debido a una sintaxis mal formulada. El cliente NO DEBERÍA repetir la solicitud sin modificaciones.
+
+También se agregó información para aclarar la causa del error.
+
+Cuando se trabaja con promesas es casi siempre una buena idea el agregar un manejo de errores y excepciones, de otra forma, uno se la pasará lidiando con bug extraños. También es buena idea imprimir el objeto que causó el error en la consola:
+
+```ts
+.catch(error => {
+	console.log(error);
+	// ...
+});
+```
+
+Ya que la razón por la que el error handler sea llamado puede ser una completamente diferente a la esperada, es necesario imprimir el mensaje en la consola. De esta forma uno se puede librar de muchas horas de frustrantes sesiones de depuración.
+
+# Moviendo el manejo de errores a un middleware
+
+Hasta el momento el código que se encarga de manejar los errores está escrito con el resto del código. Si bien esto puede ser una solución razonable algunas veces, hay muchos casos donde es necesario implementar todo el manejo de errores en un solo lugar. Esto es especialmente útil si se quieren reportar todos los datos relacionados a los errores a un sistema de seguimiento de errores externo como Sentry.
+
+Para ello se cambiará el handler de la ruta `/api/notes/:id` tal que pase el error a la función `next`. La siguiente función es pasada al handler como un tercer parámetro:
+
+```ts
+app.get("/api/notes/:id", (request, response, next) => {
+	Note.findById(request.params.id)
+		.then(note => {
+			if (note) {
+				response.json(note);
+			} else {
+				response.status(404).end();
+			}
+		})
+		.catch(error => next(error));
+});
+```
+
+El error es pasado ala función `next` como un parámetro. Si `next` es llamada sin un parámetro la ejecución se moverá a la siguiente ruta o middleware. Si la función `next` es llamada con un parámetro, la ejecución continuará al *error handler middleware*.
+
+Los [error handlers](https://expressjs.com/en/guide/error-handling.html) de Express son middlewares que son definidos como una función que acepta cuatro parámetros. El error handler luce de la siguiente manera:
+
+```ts
+const errorHandler = (error, request, response, next) => {
+	console.error(error.message);
+
+	if (error.name === "CastError") {
+		return response.status(400).send({ error: "malformed id" });
+	}
+
+	next(error);
+};
+
+app.use(errorHandler);
+```
+
+El error handler revisa si el error es una excepción *CastError*, en cuyo caso sabemos que fue producido por una id de objeto inválida de MongoDB, por lo que el servidor enviará una respuesta al navegador con el objeto de respuesta pasado como un parámetro. En todos los demás errores el middleware pase el error al error handler predeterminado de Express.
+
+Es importante ver que el error handler middleware debe ser el último middleware que sea cargado.
+
+# El orden de carga de los middlewares
+
+El orden de ejecución de los middleware es el mismo que el orden en que son cargados en Express con la función `app.use()`. Por esta razón es importante el ser cuidadosos al definir un middleware. El orden correcto es el siguiente:
+
+```ts
+app.use(express.static("build"));
+app.use(express.json());
+app.use(requestLogger);
+
+app.post("/api/notes", (request, response) => {
+	const body = request.body;
+	// ...
+});
+
+// Maneja las peticiones con una ruta desconocida
+const unknownEndpoint = (request, response) => {
+	response.status(404).send({ error: "unkwnown endpoint" });
+};
+
+app.use(unknownEndpoint);
+
+const errorHandler = (error, request, response, next) => {
+	// ...
+};
+
+	// Maneja las peticiones que resultan en errores
+app.use(errorHandler);
+```
+
+El middleware json-parser debe estar entre los primeros middlewares cargados en Express, si el orden fuese como así:
+
+```ts
+app.use(requestLogger); // request.body es undefined
+
+app.post("/api/notes", (request, response) => {
+	const body = request.body; // request.body es undefined
+	// ...
+});
+
+app.use(express.json());
+```
+
+Los datos JSON enviados con la petición HTTP no estarían disponibles para el logger middleware o el POST route handler, ya que `request.body` sería `undefined` en este punto.
+
+Es importante también que el middleware que se encarga de manejar las rutas no soportadas esté al lado del último middleware cargado en Express, justo antes del que se encarga de manejar los errores.
+
+# Otras operaciones
+
+Lo siguiente es agregar a la base de datos una funcionalidad para eliminar notas usando la base de datos. Esto se puede lograr al usar el método [`finByIdAndDelete`](https://mongoosejs.com/docs/api/model.html#model_Model-findByIdAndRemove):
+
+```ts
+app.delete("/api/notes/:id", (request, response, next) => {
+	Note.findByIdAndDelete(request.params.id)
+		.then(result => {
+			response.status(204).end();
+		})
+		.catch(error => next(error));
+});
+```
+
+En los dos casos donde se elimine con "éxito" un recurso el servidor responderá con el código de estado *204 no content*, estos dos casos son: eliminar una nota que existe y eliminar una nota que no existe. El parámetro del callback `result` puede ser usado para saber si un recurso fue eliminado realmente y podemos usar esta información para regresar códigos de estado diferentes para ambos casos si pensamos que es necesario.
+
+El caso de cambiar la importancia de una nota puede ser hecho mediante el método `findByIdAndUpdate`:
+
+```ts
+app.put("/api/notes/:id", (request, response) => {
+	const body = request.body;
+
+	const note = {
+		content: body.content,
+		important: body.important;
+	};
+
+	Note.findByIdAndUpdate(request.params.id, note, { new: true })
+		.then(updatedNote => {
+			response.json(updatedNote);
+		})
+		.catch(error => next(error));
+});
+```
+
+En el código de arriba también se permite editar el contenido de la nota.
+
+Como se puede ver, el método `findByIdAndUpdate` recibe un objeto regular de JavaScript, no uno creado con el constructor de la función `Note`.
+
+Por defecto, el método `findByIdAndUpdate` recibe en el parámetro `updatedNote` de su event handler el documento original [SIN MODIFICACIONES](https://mongoosejs.com/docs/api/model.html#model_Model-findByIdAndUpdate). Al agregar  el parámetro opcional `{ new: true }` se permite que el método sea llamado con el documento modificado en lugar del original.

@@ -1,11 +1,3 @@
 {
-  "accentColor": "",
-  "enabledCssSnippets": [
-    "blockquote",
-    "cm-line",
-    "images",
-    "tables",
-    "code"
-  ],
-  "cssTheme": "Things"
+  "accentColor": ""
 }

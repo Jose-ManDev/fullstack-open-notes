@@ -1,22 +1,18 @@
 {
   "main": {
-    "id": "cc0be1bb8bbddd0f",
+    "id": "c9aef834baea50db",
     "type": "split",
     "children": [
       {
-        "id": "669e5be95921a8b7",
+        "id": "38d4a948a71029d5",
         "type": "tabs",
         "children": [
           {
-            "id": "d1bb84a1bfc82ec7",
+            "id": "6e1041e8b1979348",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notes/Parte 3/C. Guardando los datos en MongoDB.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -25,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "2c7eadc2ecbb2bef",
+    "id": "eae0178d81c64609",
     "type": "split",
     "children": [
       {
-        "id": "5387a1eaa051ee09",
+        "id": "bdaeda86b51b5d09",
         "type": "tabs",
         "children": [
           {
-            "id": "75fc6a074ca636d3",
+            "id": "23ff0c9bb20d9d23",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +39,7 @@
             }
           },
           {
-            "id": "1a404522680a1be2",
+            "id": "373245598f52ab28",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,15 +54,7 @@
             }
           },
           {
-            "id": "90d4351872cd097c",
-            "type": "leaf",
-            "state": {
-              "type": "starred",
-              "state": {}
-            }
-          },
-          {
-            "id": "ec054de7a7e8f841",
+            "id": "678dbb4a37c50f73",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -80,20 +68,19 @@
     "width": 300
   },
   "right": {
-    "id": "f890203dfdb1244d",
+    "id": "195672530366db6e",
     "type": "split",
     "children": [
       {
-        "id": "2595373be33083d2",
+        "id": "3a019cef71770da9",
         "type": "tabs",
         "children": [
           {
-            "id": "b8cee7ae350424c9",
+            "id": "e9ff209ab79f94da",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Parte 3/C. Guardando los datos en MongoDB.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,19 +92,18 @@
             }
           },
           {
-            "id": "329b0212594532dc",
+            "id": "f5e401edf3ce8de9",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Parte 3/C. Guardando los datos en MongoDB.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "deb959a1fc91d419",
+            "id": "80aae36532a8d5a4",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -128,17 +114,14 @@
             }
           },
           {
-            "id": "f57d929605fffad4",
+            "id": "e94c33f11b2902ca",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Notes/Parte 3/C. Guardando los datos en MongoDB.md"
-              }
+              "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -152,57 +135,9 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "75fc6a074ca636d3",
-  "lastOpenFiles": [
-    "exercises/Parte 3/phonebook/backend/dist/mongo.js",
-    "exercises/Parte 3/phonebook/backend/dist/models/person.js",
-    "exercises/Parte 3/phonebook/backend/dist/models",
-    "exercises/Parte 3/phonebook/backend/models/person.ts",
-    "exercises/Parte 3/phonebook/backend/models/Person.ts",
-    "exercises/Parte 3/phonebook/backend/models",
-    "Notes/Parte 3/Images/Pasted image 20230927163613.png",
-    "Notes/Parte 3/Images/Pasted image 20230927155307.png",
-    "Notes/Parte 3/Images/Pasted image 20230927154634.png",
-    "Notes/Parte 3/C. Guardando los datos en MongoDB.md",
-    "Notes/Parte 3/Images/Pasted image 20230927001126.png",
-    "Notes/Parte 3/Images/Pasted image 20230916234411.png",
-    "Notes/Parte 3/Images/Pasted image 20230913190053.png",
-    "Notes/Parte 3/Images/Pasted image 20230913190826.png",
-    "Notes/Parte 3/Images/Pasted image 20230912220116.png",
-    "Notes/Parte 3/Images/Pasted image 20230912220235.png",
-    "Notes/Parte 3/Images/Pasted image 20230912220422.png",
-    "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
-    "exercises/Parte 3/phonebook/backend/dist/app.js",
-    "exercises/Parte 3/phonebook/backend/dist/utils/generateId.js",
-    "exercises/Parte 3/phonebook/backend/dist/utils",
-    "exercises/Parte 3/phonebook/backend/dist/public/persons.js",
-    "exercises/Parte 3/phonebook/backend/dist/public",
-    "Notes/Parte 3/Images/A. NodeJS y Express.md",
-    "Notes/Parte 2/E. Agregando estilos a una aplicación de React.md",
-    "docs/rules/no-arrow-function-lifecycle.md",
-    "Notes/Parte 2/D. Alterando datos en el servidor.md",
-    "Notes/Parte 1/A. Introducción a React.md",
-    "Notes/Parte 2/C. Obteniendo datos desde un servidor.md",
-    "Untitled.md",
-    "Notes/Parte 2/B. Formularios.md",
-    "Notes/Parte 2/A. Renderizando una colección, módulos.md",
-    "exercises/Parte 2/course-information/node_modules/update-browserslist-db/README.md",
-    "exercises/Parte 2/course-information/node_modules/which/README.md",
-    "exercises/Parte 2/course-information/node_modules/which/CHANGELOG.md",
-    "exercises/Parte 2/course-information/node_modules/yallist/README.md",
-    "exercises/Parte 2/course-information/node_modules/typescript/README.md",
-    "exercises/Parte 2/course-information/node_modules/typescript/SECURITY.md",
-    "exercises/Parte 2/course-information/node_modules/ajv/lib/dotjs/README.md",
-    "exercises/Parte 2/course-information/node_modules/tsutils/README.md",
-    "exercises/Parte 2/course-information/node_modules/tsutils/CHANGELOG.md",
-    "exercises/Parte 2/course-information/node_modules/uri-js/README.md",
-    "exercises/Parte 2/course-information/node_modules/caniuse-lite/README.md",
-    "exercises/Parte 2/course-information/node_modules/@typescript-eslint/types/README.md",
-    "exercises/Parte 2/course-information/node_modules/react/README.md",
-    "exercises/Parte 2/course-information/node_modules/react-dom/README.md"
-  ]
+  "active": "6e1041e8b1979348",
+  "lastOpenFiles": []
 }
