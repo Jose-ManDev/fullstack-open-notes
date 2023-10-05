@@ -13,7 +13,7 @@ export default function PersonList() {
     setSearchTerm(search);
   };
   return (
-    <div className="relative grow md:overflow-y-scroll md:max-h-screen md:col-span-2 md:h-4/5">
+    <div className="relative h-full overflow-y-scroll md:col-span-2 place-self-stretch">
       <SearchBar name="search_person" handleSearch={handleSearch} />
       <ul>
         {persons.filter(Filter.byString(searchTerm)).map((person) => (

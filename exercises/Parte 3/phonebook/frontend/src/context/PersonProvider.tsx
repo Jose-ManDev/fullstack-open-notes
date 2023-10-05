@@ -5,6 +5,7 @@ import { useNotificationContext } from "./NotificationProvider";
 import { isInstanceOfError } from "../utils/errorUtils";
 import { PersonContext } from "./PersonContext";
 import { PersonRequestsContext } from "./PersonRequestsContext";
+import { isAxiosError } from "axios";
 
 function personsReducer(state: Person[], action: PersonAction): Person[] {
   switch (action.type) {
@@ -53,27 +54,41 @@ export function PersonProvider({ children }: PersonProviderProps) {
 
   const addPerson = (newPerson: Omit<Person, "id">) => {
     if (checkIfPersonExists(newPerson.name)) {
-      createNotification({
+      return createNotification({
         type: "warning",
         message: `${newPerson.name} already exists in the phonebook`,
       });
-    } else {
-      PersonsApi.addPerson(newPerson, dispatchPersons)
-        .then((person) => {
-          createNotification({
-            type: "success",
-            message: `${person.name} was added to the phonebook`,
-          });
-        })
-        .catch((error) => {
-          if (isInstanceOfError(error)) {
-            createNotification({
-              type: "error",
-              message: error.message,
-            });
-          }
-        });
     }
+
+    PersonsApi.addPerson(newPerson, dispatchPersons)
+      .then((person) => {
+        createNotification({
+          type: "success",
+          message: `${person.name} was added to the phonebook`,
+        });
+      })
+      .catch((error) => {
+        if (isAxiosError(error)) {
+          switch (error.response?.status) {
+            case 400: {
+              createNotification({
+                type: "error",
+                message:
+                  "Validation error, name must have at least three characters or phone number is not valid",
+              });
+              break;
+            }
+            default: {
+              createNotification({
+                type: "error",
+                message: error.message,
+              });
+            }
+          }
+        } else {
+          createNotification({ type: "error", message: "Unknown error" });
+        }
+      });
   };
 
   const updatePerson = (id: number, updatedPerson: Person) => {

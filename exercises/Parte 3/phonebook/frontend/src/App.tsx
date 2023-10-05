@@ -5,15 +5,18 @@ import PersonList from "./features/PersonList";
 
 function App() {
   return (
-    <div className="relative container">
+    <div className="relative flex flex-col container h-screen mx-auto px-4">
       <NotificationProvider>
         <PersonProvider>
-          <main className="px-4 max-h-screen grid justify-center md:grid sm:grid-cols-3 sm:grid-row-2 sm:gap-6 sm:items-center">
-            <h1 className="py-1 font-bold text-2xl sm:row-span-1 sm:col-span-3 sm:h-1/5">
+          <header className="h-1/6 flex items-center">
+            <h1 className="py-1 font-bold text-2xl sm:col-span-3">
               The Phonebook
             </h1>
-
-            <AddPersonForm />
+          </header>
+          <main className="h-5/6 justify-center sm:flex-grow sm:grid sm:grid-cols-3 sm:gap-6 sm:items-center place-items-stretch">
+            <div className="sm:h-full flex flex-col content-center justify-center">
+              <AddPersonForm />
+            </div>
             <PersonList />
           </main>
         </PersonProvider>

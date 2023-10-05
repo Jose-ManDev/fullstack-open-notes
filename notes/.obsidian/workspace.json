@@ -151,12 +151,13 @@
   "active": "d1bb84a1bfc82ec7",
   "lastOpenFiles": [
     "Parte 3/Images/Pasted image 20231004141743.png",
-    "Parte 3/D. Validación y ESLint.md",
-    "Parte 3/Images/A. NodeJS y Express.md",
     "Parte 3/Images/Pasted image 20231004141721.png",
     "Parte 3/Images/Pasted image 20231004141521.png",
     "Parte 3/Images/Pasted image 20231004141107.png",
     "Parte 3/Images/Pasted image 20231002211439.png",
+    "Parte 3/D. Validación y ESLint.md",
+    "Parte 3/A. NodeJS y Express.md",
+    "Parte 3/Images/A. NodeJS y Express.md",
     "Parte 3/C. Guardando los datos en MongoDB.md",
     "notes/Parte 3/Images/Pasted image 20230927163613.png",
     "notes/Parte 3/Images/Pasted image 20230927155307.png",
@@ -193,7 +194,6 @@
     "docs/rules/no-arrow-function-lifecycle.md",
     "Notes/Parte 2/D. Alterando datos en el servidor.md",
     "Notes/Parte 1/A. Introducción a React.md",
-    "Notes/Parte 2/C. Obteniendo datos desde un servidor.md",
-    "Untitled.md"
+    "Notes/Parte 2/C. Obteniendo datos desde un servidor.md"
   ]
 }
