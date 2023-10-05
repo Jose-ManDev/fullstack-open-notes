@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static("./dist"));
+app.use(express.static("./frontend"));
 app.use(
   morgan(function (tokens, req, res) {
     if (req.method === "POST") {
@@ -130,8 +130,14 @@ app.use((request, response) => {
 
 const errorHandler: ErrorRequestHandler = (error, request, response, next) => {
   console.error(error.message);
-  if (error.name === "CastError") {
-    return response.status(400).send({ error: "malformed id" });
+
+  switch (error.name) {
+    case "CastError": {
+      return response.status(400).send({ error: "malformed id" });
+    }
+    case "ValidationError": {
+      return response.status(400).send({ error: "validation error" });
+    }
   }
 
   next(error);

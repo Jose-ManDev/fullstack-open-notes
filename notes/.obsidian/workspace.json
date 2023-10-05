@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Parte 3/C. Guardando los datos en MongoDB.md",
+                "file": "Parte 3/D. Validación y ESLint.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f890203dfdb1244d",
@@ -94,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Parte 3/C. Guardando los datos en MongoDB.md",
+                "file": "Parte 3/D. Validación y ESLint.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Parte 3/C. Guardando los datos en MongoDB.md",
+                "file": "Parte 3/D. Validación y ESLint.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Parte 3/C. Guardando los datos en MongoDB.md"
+                "file": "Parte 3/D. Validación y ESLint.md"
               }
             }
           }
@@ -159,17 +158,18 @@
   },
   "active": "d1bb84a1bfc82ec7",
   "lastOpenFiles": [
+    "Parte 3/Images/Pasted image 20231004141743.png",
+    "Parte 3/D. Validación y ESLint.md",
+    "Parte 3/Images/Pasted image 20231004141721.png",
+    "Parte 3/Images/Pasted image 20231004141521.png",
+    "Parte 3/Images/Pasted image 20231004141107.png",
+    "Parte 3/Images/Pasted image 20231002211439.png",
+    "Parte 3/C. Guardando los datos en MongoDB.md",
     "notes/Parte 3/Images/Pasted image 20230927163613.png",
     "notes/Parte 3/Images/Pasted image 20230927155307.png",
     "notes/Parte 3/Images/Pasted image 20230927154634.png",
     "notes/Parte 3/Images/Pasted image 20230927001126.png",
     "notes/Parte 3/Images/Pasted image 20230916234411.png",
-    "notes/Parte 3/Images/Pasted image 20230913190826.png",
-    "notes/Parte 3/Images/Pasted image 20230913190053.png",
-    "notes/Parte 3/Images/Pasted image 20230912220422.png",
-    "notes/Parte 3/Images/Pasted image 20230912220235.png",
-    "notes/Parte 3/Images/Pasted image 20230912220116.png",
-    "notes/Parte 3/Images/Pasted image 20230912215517.png",
     "notes/Parte 3/Images/A. NodeJS y Express.md",
     "notes/Parte 3/Images",
     "notes/Parte 3/C. Guardando los datos en MongoDB.md",
@@ -202,8 +202,6 @@
     "Notes/Parte 1/A. Introducción a React.md",
     "Notes/Parte 2/C. Obteniendo datos desde un servidor.md",
     "Untitled.md",
-    "Notes/Parte 2/B. Formularios.md",
-    "Notes/Parte 2/A. Renderizando una colección, módulos.md",
-    "exercises/Parte 2/course-information/node_modules/update-browserslist-db/README.md"
+    "Notes/Parte 2/B. Formularios.md"
   ]
 }
