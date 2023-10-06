@@ -6,7 +6,7 @@ set("strictQuery", false);
 console.log("Connecting to", url);
 
 connect(url)
-  .then((result) => {
+  .then(() => {
     console.log("Connected to MongoDB");
   })
   .catch((error) => {

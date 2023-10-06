@@ -11,8 +11,12 @@
             "id": "d1bb84a1bfc82ec7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Parte 3/D. Validación y ESLint.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -73,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f890203dfdb1244d",
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Parte 3/D. Validación y ESLint.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Parte 3/D. Validación y ESLint.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Parte 3/D. Validación y ESLint.md"
+              }
             }
           }
         ],
@@ -150,6 +159,8 @@
   },
   "active": "d1bb84a1bfc82ec7",
   "lastOpenFiles": [
+    "Pasted image 20231005180705.png",
+    "Pasted image 20231005180443.png",
     "Parte 3/Images/Pasted image 20231004141743.png",
     "Parte 3/Images/Pasted image 20231004141721.png",
     "Parte 3/Images/Pasted image 20231004141521.png",
@@ -163,7 +174,6 @@
     "notes/Parte 3/Images/Pasted image 20230927155307.png",
     "notes/Parte 3/Images/Pasted image 20230927154634.png",
     "notes/Parte 3/Images/Pasted image 20230927001126.png",
-    "notes/Parte 3/Images/Pasted image 20230916234411.png",
     "notes/Parte 3/Images/A. NodeJS y Express.md",
     "notes/Parte 3/Images",
     "notes/Parte 3/C. Guardando los datos en MongoDB.md",

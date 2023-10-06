@@ -1,11 +1,10 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import express, { ErrorRequestHandler, response } from "express";
+import express, { ErrorRequestHandler } from "express";
 import morgan from "morgan";
 import cors from "cors";
 import Person from "./models/person";
-import db from "mongoose";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -59,7 +58,7 @@ app.get("/api/persons/:id", (request, response, next) => {
 
 app.delete("/api/persons/:id", (request, response, next) => {
   Person.findByIdAndDelete(request.params.id)
-    .then((result) => {
+    .then(() => {
       response.status(204).end();
     })
     .catch((error) => {
@@ -124,7 +123,7 @@ app.get("/info/", (request, response, next) => {
     });
 });
 
-app.use((request, response) => {
+app.use((_, response) => {
   response.status(404).send({ error: "unknown endpoint" });
 });
 
