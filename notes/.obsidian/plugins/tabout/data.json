@@ -77,6 +77,21 @@
       ],
       "tokenMatcher": "hmd-codeblock",
       "jumpAfter": true
+    },
+    {
+      "lookups": [
+        "]",
+        ")"
+      ],
+      "tokenMatcher": "hmd-barelink_link",
+      "jumpAfter": true
+    },
+    {
+      "lookups": [
+        ")"
+      ],
+      "tokenMatcher": "string_url",
+      "jumpAfter": true
     }
   ]
 }

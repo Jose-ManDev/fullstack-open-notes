@@ -1,4 +1,4 @@
-Para comenzar con se usará como ejemplo una aplicación en la siguiente dirección: [[https://studies.cs.helsinki.fi/exampleapp]].
+Para comenzar se usará como ejemplo una aplicación en la siguiente dirección: [[https://studies.cs.helsinki.fi/exampleapp]].
 
 ![[Pasted image 20230426232543.png]]
 
