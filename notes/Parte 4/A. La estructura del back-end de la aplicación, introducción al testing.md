@@ -326,3 +326,180 @@ app.use("/api/notes", notesRouter);
 Ahora la exportación se asigna a una variable y es usada como tal.
 
 # Probando aplicaciones de Node
+
+Una de las áreas más importantes del desarrollo de software son las pruebas automatizadas, una de las formas más comunes de hacerlo es el uso de test unitarios.
+
+La lógica de la aplicación es simple, por lo que no hay mucho que probar con las pruebas unitarias. Para ello hay que crear un nuevo archivo *utils/for_testing.ts* y en él se escribirán unas cuantas funciones que se usarán para la práctica de escribir pruebas:
+
+```ts
+const reverse = (str: string) => {
+	return str
+		.split("")
+		.reverse()
+		.join("");
+};
+
+const average = (array: number[]) => {
+	const reducer = (sum: number, item: number) => {
+		return sum + item
+	};
+	return array.reduce(reducer, 0) / array.length;
+};
+
+export { reverse, average };
+```
+
+Existen varias librerías de testing o *testing runners* disponibles para JavaScript. En este curso se estará usando [Jest](https://jestjs.io/), una librería de testing usada en Facebook que se parece a la librerías más usada de su tiempo para testing, [Mocha](https://mochajs.org/).
+
+Dado que los test solo se ejecutan durante el desarrollo de la aplicación se debe de instalar Jest como una dependencia de desarrollo con el siguiente comando:
+
+```sh
+npm install --save-dev jest
+```
+
+Lo siguiente es definir el script de npm `test` para ejecutar los tests con Jest y reportar los tests con el estilo verbose:
+
+```json
+{
+	// ...
+	"scripts": {
+		// ...
+		"test": "jest --verbose"
+	},
+	// ...
+}
+```
+
+Jest también requiere que se especifique que el entorno de ejecución es Node. Esto se puede hacer al agregar lo siguiente al final de *package.json*:
+
+```json
+{
+	// ...
+	"jest": {
+		"testEnvironment": "node"
+	}
+}
+```
+
+Lo siguiente es crear un directorio separado para los tests llamado `test` y crear un nuevo archivo llamado *reverse.test.ts* con el siguiente contenido:
+
+```ts
+import { reverse } from "../utils/for_testing";
+
+test("reverse of a", () => {
+	const result = reverse("a");
+	expect(result).toBe("a");
+});
+
+test("reverse of react", () => {
+	const result = reverse("react");
+	expect(result).toBe("tcaer");
+});
+
+test("reverse of releveler", () => {
+	const result = reverse("releveler");
+	expect(result).toBe("releveler");
+});
+```
+
+La configuración de ESLint que se agregó al proyecto en la parte anterior se quejará acerca de las funciones `test` y `expect` dado que la configuración no admite funciones globales, para evitar esto se debe agregar Jest al archivo de ESLint:
+
+```ts
+export {
+	"env": {
+		"commonjs": true,
+		"es2021": true,
+		"node": true,
+		"jest": true,
+	},
+	// ...
+}
+```
+
+El la primera línea del archivo de tests se importa la función a ser probada:
+
+```ts
+import { reverse } from "../utils/for_testing";
+```
+
+Los test individuales son definidos mediante la función `test`, de la cual su primer parámetro es la descripción de la prueba como un string. El segundo parámetro es una función que define la funcionalidad del caso de prueba, la funcionalidad para el segundo caso de prueba es la siguiente:
+
+```ts
+() => {
+	const result = reverse("react");
+	expect(result).toBe("tcaer");
+}
+```
+
+Lo primero es ejecutar el código a ser probado, es decir, generar el string en reversa. Tras esto, se verifica el resultado usando la función [`expect`](https://jestjs.io/docs/expect#expectvalue). Esta función envuelve el resultado en un objeto que ofrece una colección de funciones de comparación (matcher functions) que pueden ser usadas para verificar la exactitud del resultado. Dado que en este caso estamos comparando dos strings se puede usar el comparador [`toBe`](https://jestjs.io/docs/expect#tobevalue).
+
+En la consola se mostrará que se han pasado todos los tests:
+
+![[Pasted image 20231024162946.png]]
+
+Jest espera que los nombres de los archivos de pruebas contengan *.test.*, por lo que se debe agregar esto a los archivos de pruebas. Es bueno notar que Jest contiene muy buenos mensajes de error, para ver esto podemos romper la prueba:
+
+```ts
+test("palindrome of react", () => {
+	const result = reverse("react");
+	expect(result).toBe("tkaer");
+});
+```
+
+Al correr los tests se nos muestra lo siguiente:
+
+![[Pasted image 20231024163252.png]]
+
+Lo siguiente es agregar algunas pruebas para la función `average` dentro de un nuevo archivo *average.test.ts*:
+
+```ts
+import { average } from "../utils/for testing";
+
+describe("average", () => {
+	test("of one value is the value itself", () => {
+		expect(average([1])).toBe(1);
+	});
+
+	test("of many is calculated right", () => {
+		expect(average([1, 2, 3, 4, 5, 6])).toBe(3.5);
+	});
+
+	test("of empty array is zero", () => {
+		expect(average([])).toBe(0);
+	});
+});
+```
+
+La prueba nos revela que la función no funciona como debería con un array vacío, pues al dividir por cero nos da `NaN`:
+
+![[Pasted image 20231024182804.png]]
+
+Arreglar la función es fácil:
+
+```ts
+ const average = (array: number[]) => {
+	const reducer = (sum: number, item: number) => sum + item;
+	return array.length === 0
+	? 0
+	: array.reduce(reducer, 0) / array.length; 
+ };
+```
+
+De esta forma cuando la longitud del array sea 0 se regresará 0 y en todos los demás casos se usará el método `reduce` para calcular el promedio.
+
+Por último, hay algo que notar de las pruebas que se escribieron, esto es, el uso de una función `describe`.
+
+Los bloques `describe` pueden ser usados para agrupar pruebas en colecciones lógicas. Esto permite que Jest use el nombre que describe al bloque en su salida:
+
+![[Pasted image 20231024183235.png]]
+
+Los bloques `describe` son necesarios cuando se quieren correr un conjunto de configuraciones o separar las operaciones para un grupo de pruebas.
+
+Algo más a notar es que se pueden escribir las pruebas de una forma más compacta y sin tener que asignar la salida de una función a una variable:
+
+```ts
+test("of empty array is zero", () => {
+	expect(average([])).toBe(0);
+});
+```
+

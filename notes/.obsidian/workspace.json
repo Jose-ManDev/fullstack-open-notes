@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5b714ed3be79f528",
+        "id": "ed5cb9007b507738",
         "type": "tabs",
         "children": [
           {
-            "id": "871fe5d1e7d8a81c",
+            "id": "3df0c715ad2f051b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -156,10 +156,15 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "871fe5d1e7d8a81c",
+  "active": "3df0c715ad2f051b",
   "lastOpenFiles": [
-    "Parte 3/A. NodeJS y Express.md",
+    "Parte 4/Images/Pasted image 20231024183235.png",
+    "Parte 4/Images/Pasted image 20231024163252.png",
     "Parte 4/A. La estructura del back-end de la aplicación, introducción al testing.md",
+    "Parte 4/Images/Pasted image 20231024182804.png",
+    "Parte 4/Images",
+    "Parte 4/Images/Pasted image 20231024162946.png",
+    "Parte 3/A. NodeJS y Express.md",
     "Parte 3/Images/Pasted image 20231005180443.png",
     "Parte 4",
     "Parte 3/D. Validación y ESLint.md",
@@ -168,12 +173,8 @@
     "Parte 3/Images/Pasted image 20231004141721.png",
     "Parte 3/Images/Pasted image 20231004141521.png",
     "Parte 3/Images/Pasted image 20231004141107.png",
-    "Parte 3/Images/Pasted image 20231002211439.png",
     "Parte 3/Images/A. NodeJS y Express.md",
     "Parte 3/C. Guardando los datos en MongoDB.md",
-    "notes/Parte 3/Images/Pasted image 20230927163613.png",
-    "notes/Parte 3/Images/Pasted image 20230927155307.png",
-    "notes/Parte 3/Images/Pasted image 20230927154634.png",
     "notes/Parte 3/Images/A. NodeJS y Express.md",
     "notes/Parte 3/Images",
     "notes/Parte 3/C. Guardando los datos en MongoDB.md",
@@ -195,7 +196,6 @@
     "notes/Parte 0/Images",
     "notes/Parte 0/B. Fundamentos de las páginas web.md",
     "notes/Parte 0",
-    "notes",
     "Notes/Parte 3/C. Guardando los datos en MongoDB.md",
     "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
     "Notes/Parte 3/Images/A. NodeJS y Express.md",
