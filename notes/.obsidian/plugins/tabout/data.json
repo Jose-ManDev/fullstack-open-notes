@@ -92,6 +92,13 @@
       ],
       "tokenMatcher": "string_url",
       "jumpAfter": true
+    },
+    {
+      "lookups": [
+        "]"
+      ],
+      "tokenMatcher": "formatting_formatting-code_hmd-barelink_inline-code_link",
+      "jumpAfter": true
     }
   ]
 }

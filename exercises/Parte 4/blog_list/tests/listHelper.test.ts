@@ -4,7 +4,7 @@ import {
   mostBlogs,
   mostLikes,
   totalLikes,
-} from "./listHelper";
+} from "../utils/listHelper";
 import { test, expect, describe } from "@jest/globals";
 
 const blogs = [

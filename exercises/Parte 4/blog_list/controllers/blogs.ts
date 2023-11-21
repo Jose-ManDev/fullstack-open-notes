@@ -1,20 +1,27 @@
 import { Router, response } from "express";
-import Blog from "../models/blog";
+import { Blog, BlogInterface } from "../models/blog";
 
 const blogsRouter = Router();
 
-blogsRouter.get("/", (request, response) => {
-  Blog.find({}).then((blogs) => {
-    response.json(blogs);
-  });
+blogsRouter.get("/", async (_, response) => {
+  const blogs = await Blog.find({});
+  response.json(blogs);
 });
 
-blogsRouter.post("/", (request, response) => {
-  const blog = new Blog(request.body);
+blogsRouter.post("/", async (request, response) => {
+  const body = request.body;
 
-  blog.save().then((result) => {
-    response.status(204).json(result);
-  });
+  if (body.title && body.url) {
+    const blog: BlogInterface = {
+      ...body,
+      likes: body.likes || 0,
+    };
+
+    const newBlog = await new Blog(blog).save();
+    response.status(201).json(newBlog);
+  }
+
+  response.status(400).end();
 });
 
 export default blogsRouter;

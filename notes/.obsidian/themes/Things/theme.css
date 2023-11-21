@@ -570,6 +570,9 @@ span.token.variable,
 .cm-hmd-codeblock.cm-string-2 {
   color: var(--atom-green);
 }
+.cm-hmd-codeblock.cm-string-2 {
+  color: var(--atom-orange);
+}
 .token.operator,
 .cm-operator,
 .token.entity,
