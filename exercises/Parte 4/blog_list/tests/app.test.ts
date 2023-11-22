@@ -14,7 +14,7 @@ beforeEach(async () => {
   await Promise.all(blogs.map((blog) => blog.save()));
 });
 
-describe("app HTTP GET request", () => {
+describe("fetching all blogs", () => {
   test("should return blogs as json", async () => {
     await api
       .get("/api/blogs")
@@ -39,7 +39,7 @@ describe("app HTTP GET request", () => {
   });
 });
 
-describe("app HTTP POST request", () => {
+describe("posting a blog", () => {
   test("should add a valid blog", async () => {
     const blog = {
       title: "Type wars",
@@ -96,5 +96,73 @@ describe("app HTTP POST request", () => {
     };
 
     await api.post("/api/blogs").send(blog).expect(400);
+  });
+});
+
+describe("deleting a blog", () => {
+  test("should delete a blog with a valid id", async () => {
+    const blog = {
+      title: "TDD harms architecture",
+      author: "Robert C. Martin",
+      url: "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html",
+    };
+
+    const response = await api.post("/api/blogs").send(blog).expect(201);
+    const newBlog = response.body;
+
+    let blogs = await getBlogsInDB();
+    expect(blogs).toHaveLength(initialBlogs.length + 1);
+
+    const id = newBlog.id;
+    await api.delete(`/api/blogs/${id}`).expect(204);
+
+    blogs = await getBlogsInDB();
+    expect(blogs).toHaveLength(initialBlogs.length);
+  });
+});
+
+describe("updating a blog", () => {
+  test("should return a blog with updated fields", async () => {
+    let blog = {
+      title: "TDD harms architecture",
+      author: "Robert C. Martin",
+      url: "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html",
+    };
+
+    let response = await api.post("/api/blogs").send(blog).expect(201);
+    const id = response.body.id;
+
+    blog = {
+      title: "TDD harms architecture and more",
+      author: "Robert Martin",
+      url: "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html",
+    };
+
+    response = await api.put(`/api/blogs/${id}`).send(blog).expect(200);
+    const updatedBlog = response.body;
+
+    expect(updatedBlog).toHaveProperty("id", id);
+    expect(updatedBlog).toHaveProperty(
+      "title",
+      "TDD harms architecture and more"
+    );
+    expect(updatedBlog).toHaveProperty("author", "Robert Martin");
+  });
+
+  test("should not accept an invalid update", async () => {
+    let blog: any = {
+      title: "TDD harms architecture",
+      author: "Robert C. Martin",
+      url: "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html",
+    };
+
+    let response = await api.post("/api/blogs").send(blog).expect(201);
+    const id = response.body.id;
+
+    blog = {
+      author: "Robert Martin",
+    };
+
+    await api.put(`/api/blogs/${id}`).send(blog).expect(400);
   });
 });

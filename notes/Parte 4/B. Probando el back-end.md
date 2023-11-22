@@ -787,6 +787,3 @@ La última línea del código espera hasta que cada promesa se termine, lo que s
 
 > El método `Promise.all` permite tener disponibles los resultados devueltos por cada promesa.
 > En este ejemplo `const results = await Promise.all(promiseArray)` la variable `results` contiene un array con los resultados de cada promesa y aparecerán en el mismo orden que las promesas del array.
-
-# Refactorizando pruebas
-
