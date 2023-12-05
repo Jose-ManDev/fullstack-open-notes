@@ -1,28 +1,32 @@
 import { Dictionary, countBy, maxBy, toPairs } from "lodash";
 import { reduce } from "lodash/";
-import { BlogInterface } from "../models/blog";
 
-const dummy = (blogs: BlogInterface[]) => {
+type Blog = {
+  author: string;
+  likes: number;
+};
+
+const dummy = (blogs: Blog[]) => {
   return 1;
 };
 
-const totalLikes = (blogs: BlogInterface[]) => {
-  const sumLikes = (sum: number, blog: BlogInterface) => sum + blog.likes;
+const totalLikes = (blogs: Blog[]) => {
+  const sumLikes = (sum: number, blog: Blog) => sum + blog.likes;
   return blogs.reduce(sumLikes, 0);
 };
 
-const favoriteBlog = (blogs: BlogInterface[]) => {
+const favoriteBlog = (blogs: Blog[]) => {
   if (blogs.length === 0) return;
 
-  const getFavorite = (favorite: BlogInterface, currentBlog: BlogInterface) =>
+  const getFavorite = (favorite: Blog, currentBlog: Blog) =>
     favorite.likes > currentBlog.likes ? favorite : currentBlog;
 
   return blogs.reduce(getFavorite);
 };
 
-const mostBlogs = (blogs: BlogInterface[]) => {
+const mostBlogs = (blogs: Blog[]) => {
   if (blogs.length === 0) return;
-  const authors = countBy(blogs, (blog: BlogInterface) => blog.author);
+  const authors = countBy(blogs, (blog: Blog) => blog.author);
   const authorsArray = toPairs(authors);
 
   const mostBlogsAuthor = maxBy(
@@ -34,7 +38,7 @@ const mostBlogs = (blogs: BlogInterface[]) => {
     return { author: mostBlogsAuthor[0], blogs: mostBlogsAuthor[1] };
 };
 
-const mostLikes = (blogs: BlogInterface[]) => {
+const mostLikes = (blogs: Blog[]) => {
   if (blogs.length === 0) return;
 
   const authors = reduce(

@@ -5,7 +5,8 @@
     "cm-line",
     "images",
     "tables",
-    "code"
+    "code",
+    "mermaid"
   ],
   "cssTheme": "Things"
 }

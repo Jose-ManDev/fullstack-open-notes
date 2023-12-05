@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Parte 4/B. Probando el back-end.md",
+                "file": "Parte 4/D.  Autentificación de tokens.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f890203dfdb1244d",
@@ -93,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Parte 4/B. Probando el back-end.md",
+                "file": "Parte 4/D.  Autentificación de tokens.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Parte 4/B. Probando el back-end.md",
+                "file": "Parte 4/D.  Autentificación de tokens.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Parte 4/B. Probando el back-end.md"
+                "file": "Parte 4/D.  Autentificación de tokens.md"
               }
             }
           }
@@ -158,23 +159,25 @@
   },
   "active": "3df0c715ad2f051b",
   "lastOpenFiles": [
+    "Pasted image 20231129213018.png",
+    "Pasted image 20231128185738.png",
+    "Pasted image 20231128185708.png",
+    "Parte 4/C. Administración de usuarios.md",
+    "Parte 4/D.  Autentificación de tokens.md",
+    "Parte 4/Images/Pasted image 20231123142840.png",
+    "Parte 4/Images/Pasted image 20231123140357.png",
+    "Parte 4/Images/Pasted image 20231123115358.png",
+    "Parte 4/B. Probando el back-end.md",
     "Parte 4/Images/Pasted image 20231117164806.png",
     "Parte 4/Images/Pasted image 20231027173924.png",
     "Parte 4/A. La estructura del back-end de la aplicación, introducción al testing.md",
-    "Parte 4/B. Probando el back-end.md",
     "Parte 4/Images/Pasted image 20231024183235.png",
     "Parte 4/Images/Pasted image 20231024163252.png",
     "Parte 4/Images/Pasted image 20231024182804.png",
     "Parte 4/Images",
-    "Parte 4/Images/Pasted image 20231024162946.png",
     "Parte 3/A. NodeJS y Express.md",
-    "Parte 3/Images/Pasted image 20231005180443.png",
     "Parte 4",
     "Parte 3/D. Validación y ESLint.md",
-    "Parte 3/Images/Pasted image 20231005180705.png",
-    "Parte 3/Images/Pasted image 20231004141743.png",
-    "Parte 3/Images/Pasted image 20231004141721.png",
-    "Parte 3/Images/Pasted image 20231004141521.png",
     "Parte 3/Images/A. NodeJS y Express.md",
     "Parte 3/C. Guardando los datos en MongoDB.md",
     "notes/Parte 3/Images/A. NodeJS y Express.md",
@@ -201,8 +204,6 @@
     "Notes/Parte 3/C. Guardando los datos en MongoDB.md",
     "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
     "Notes/Parte 3/Images/A. NodeJS y Express.md",
-    "Notes/Parte 2/E. Agregando estilos a una aplicación de React.md",
-    "docs/rules/no-arrow-function-lifecycle.md",
-    "Notes/Parte 2/D. Alterando datos en el servidor.md"
+    "Notes/Parte 2/E. Agregando estilos a una aplicación de React.md"
   ]
 }

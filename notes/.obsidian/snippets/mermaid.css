@@ -1,0 +1,35 @@
+.mermaid svg {
+  position: relative;
+  max-width: 100%;
+  height: auto;
+}
+
+.scale1000 .mermaid:hover svg {
+  max-width: 1000%;
+}
+
+.scale500 .mermaid:hover svg {
+  max-width: 500%;
+}
+
+.scale250 .mermaid:hover svg {
+  max-width: 250%;
+}
+
+.scale200 .mermaid:hover svg {
+  max-width: 200%;
+}
+
+.scale150 .mermaid:hover svg {
+  max-width: 150%;
+}
+
+.scale150:hover,
+.scale200:hover,
+.scale250:hover,
+.scale500:hover,
+.scale1000:hover {
+  top: 50%;
+  right: 50%;
+  transform: translate(-25%, 0%);
+}
