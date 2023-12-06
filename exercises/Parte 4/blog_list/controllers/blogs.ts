@@ -54,6 +54,7 @@ blogsRouter.post(
         url: newBlog.url,
         id: newBlog.id,
       });
+      await user.save();
       return response.status(201).json(newBlog);
     }
 
