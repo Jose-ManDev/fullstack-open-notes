@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Parte 5/A. Iniciando sesión en el frontend.md",
+                "file": "Parte 5/props.children y prototipos.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Parte 5/A. Iniciando sesión en el frontend.md",
+                "file": "Parte 5/props.children y prototipos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Parte 5/A. Iniciando sesión en el frontend.md",
+                "file": "Parte 5/props.children y prototipos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Parte 5/A. Iniciando sesión en el frontend.md"
+                "file": "Parte 5/props.children y prototipos.md"
               }
             }
           }
@@ -156,13 +156,16 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "75fc6a074ca636d3",
+  "active": "62aa5de9224bbdd0",
   "lastOpenFiles": [
+    "Parte 5/A. Iniciando sesión en el frontend.md",
+    "Parte 5/props.children y prototipos.md",
+    "Parte 5/Images/Pasted image 20231215202206.png",
+    "Parte 5/Images/Pasted image 20231215202141.png",
     "Parte 5/Images/Pasted image 20231209220024.png",
     "Parte 5/Images",
     "Parte 5/Images/Pasted image 20231208163741.png",
     "Parte 4/Images/Pasted image 20231128185708.png",
-    "Parte 5/A. Iniciando sesión en el frontend.md",
     "Parte 5",
     "Parte 4/Images/Pasted image 20231128185738.png",
     "Parte 4/Images/Pasted image 20231129213018.png",
@@ -172,10 +175,7 @@
     "Parte 4/Images/Pasted image 20231123140357.png",
     "Parte 4/Images/Pasted image 20231123115358.png",
     "Parte 4/B. Probando el back-end.md",
-    "Parte 4/Images/Pasted image 20231117164806.png",
-    "Parte 4/Images/Pasted image 20231027173924.png",
     "Parte 4/A. La estructura del back-end de la aplicación, introducción al testing.md",
-    "Parte 4/Images/Pasted image 20231024183235.png",
     "Parte 4/Images",
     "Parte 3/A. NodeJS y Express.md",
     "Parte 4",
@@ -202,7 +202,6 @@
     "notes/Parte 1",
     "notes/Parte 0/B. Fundamentos de las páginas web.md",
     "Notes/Parte 3/C. Guardando los datos en MongoDB.md",
-    "Notes/Parte 3/B. Subiendo la aplicación a internet.md",
-    "Notes/Parte 3/Images/A. NodeJS y Express.md"
+    "Notes/Parte 3/B. Subiendo la aplicación a internet.md"
   ]
 }
