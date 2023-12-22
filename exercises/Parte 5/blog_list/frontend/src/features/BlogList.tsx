@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useUser } from "../context/userContext";
 import BlogForm from "./BlogForm";
 import blogService from "../services/blogs";
+import List from "../components/List";
+import Togglable from "../components/Togglable";
 
 function BlogList() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -19,12 +21,18 @@ function BlogList() {
 
   return (
     <div>
-      {user ? <BlogForm onCreate={handleCreate} /> : null}
-      <ul>
-        {blogs.map((blog) => (
-          <Blog key={blog.id} blog={blog} />
-        ))}
-      </ul>
+      {user ? (
+        <Togglable buttonLabel="Create new note">
+          <BlogForm onCreate={handleCreate} />
+        </Togglable>
+      ) : null}
+      <List
+        listType="ul"
+        list={blogs}
+        mapList={(blog) => <Blog key={blog.id} blog={blog} />}
+      >
+        Blogs
+      </List>
     </div>
   );
 }

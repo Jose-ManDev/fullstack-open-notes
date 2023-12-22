@@ -1,13 +1,15 @@
 import { CSSProperties } from "react";
 import { useNotificationQueue } from "../context/notificationContext";
-import IconInfoCircle from "./IconInfo";
-import IconCheckCircle from "./IconCheck";
-import IconWarning from "./IconWarning";
-import IconErrorCircle from "./IconError";
+import IconInfoCircle from "../components/IconInfo";
+import IconCheckCircle from "../components/IconCheck";
+import IconWarning from "../components/IconWarning";
+import IconErrorCircle from "../components/IconError";
+import List from "../components/List";
 
 const listStyles: Record<string, CSSProperties> = {
   container: {
     display: "flex",
+    alignItems: "end",
     flexDirection: "column",
     position: "fixed",
     top: "1em",
@@ -19,11 +21,14 @@ function NotificationList() {
   const notificationQueue = useNotificationQueue();
 
   return (
-    <ul style={listStyles.container}>
-      {notificationQueue.map((notification) => (
+    <List
+      listType="ul"
+      style={listStyles.container}
+      list={notificationQueue}
+      mapList={(notification) => (
         <Notification key={notification.id} notification={notification} />
-      ))}
-    </ul>
+      )}
+    />
   );
 }
 

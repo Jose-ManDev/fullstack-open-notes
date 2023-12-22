@@ -334,3 +334,6 @@ La función `useImperativeHandle` es un hook de React usado para definir funcion
 Este truco funciona para cambiar el estado del componente pero no se ve muy bien. Se puede lograr el mismo efecto con un código más limpio usando algo de los componentes de clase del "viejo React", este es uno de los pocos casos donde el uso de hooks no lleva a un código más limpio que los componentes de clase.
 
 Existen además de este otros [casos de uso](https://react.dev/learn/manipulating-the-dom-with-refs) de las referencias aparte de acceder a componentes de React.
+
+# propTypes
+

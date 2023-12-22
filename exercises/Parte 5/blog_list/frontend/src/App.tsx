@@ -1,8 +1,8 @@
 import UserProvider from "./components/UserProvider";
 import NotificationProvider from "./components/NotificationProvider";
-import LoginForm from "./components/LoginForm";
-import BlogList from "./components/BlogList";
-import NotificationList from "./components/NotificationList";
+import LoginForm from "./features/LoginForm";
+import BlogList from "./features/BlogList";
+import NotificationList from "./features/NotificationList";
 
 function App() {
   return (
@@ -10,7 +10,6 @@ function App() {
       <UserProvider>
         <div>
           <LoginForm />
-          <h2>Blogs</h2>
           <BlogList />
         </div>
         <NotificationList />

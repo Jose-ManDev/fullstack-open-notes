@@ -1,6 +1,8 @@
 import { FormEvent, useState } from "react";
 import blogService from "../services/blogs";
 import { useCreateNotification } from "../context/notificationContext";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 type BlogFormProps = {
   onCreate: (blog: Blog) => void;
@@ -37,23 +39,23 @@ function BlogForm({ onCreate }: BlogFormProps) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title: </label>
-      <input
+      <Input
         type="text"
         required
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-      />
-
-      <label htmlFor="url">URL:</label>
-      <input
+      >
+        Title
+      </Input>
+      <Input
         type="text"
         required
         value={url}
         onChange={(e) => setUrl(e.target.value)}
-      />
-
-      <button type="submit">Create</button>
+      >
+        URL
+      </Input>
+      <Button type="submit">Create</Button>
     </form>
   );
 }

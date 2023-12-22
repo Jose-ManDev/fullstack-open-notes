@@ -5,6 +5,8 @@ import { useUser, useUserUpdate } from "../context/userContext";
 import { useCreateNotification } from "../context/notificationContext";
 import { isUser } from "../utils/checkType";
 import { AxiosError } from "axios";
+import Button from "../components/Button";
+import Input from "../components/Input";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -51,27 +53,29 @@ const LoginForm = () => {
   return user ? (
     <div>
       Logged as {user.name}
-      <button type="button" onClick={handleLogout}>
+      <Button type="button" onClick={handleLogout}>
         Log out
-      </button>
+      </Button>
     </div>
   ) : (
     <form onSubmit={handleLogin}>
-      <label htmlFor="username">Username:</label>
-      <input
+      <Input
         type="text"
         id="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-      />
-      <label htmlFor="password">Password:</label>
-      <input
+      >
+        Username
+      </Input>
+      <Input
         type="password"
         id="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
+      >
+        Password
+      </Input>
+      <Button type="submit">Log in</Button>
     </form>
   );
 };
