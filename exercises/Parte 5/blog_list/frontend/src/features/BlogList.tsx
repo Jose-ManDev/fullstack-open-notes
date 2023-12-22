@@ -4,6 +4,7 @@ import BlogForm from "./BlogForm";
 import blogService from "../services/blogs";
 import List from "../components/List";
 import Togglable from "../components/Togglable";
+import Button from "../components/Button";
 
 function BlogList() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -41,6 +42,14 @@ const Blog = ({ blog }: { blog: Blog }) => {
   return (
     <li>
       {blog.title} {blog.user.name}
+      <Togglable buttonLabel="show details">
+        <ul>
+          <li>{blog.url}</li>
+          <li>
+            {blog.likes} <Button>like</Button>
+          </li>
+        </ul>
+      </Togglable>
     </li>
   );
 };

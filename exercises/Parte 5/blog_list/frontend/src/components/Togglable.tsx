@@ -11,7 +11,7 @@ function Togglable({ isShown, buttonLabel, children }: TogglableProps) {
   const [visible, setVisible] = useState(isShown);
 
   const hideWhenVisible = { display: visible ? "none" : "" };
-  const showWhenVisible = { display: visible ? "" : "none" };
+  const showWhenVisible = { display: visible ? "inline-block" : "none" };
 
   const toggleVisibility = () => setVisible(!visible);
 
@@ -22,7 +22,7 @@ function Togglable({ isShown, buttonLabel, children }: TogglableProps) {
       </div>
       <div style={showWhenVisible}>
         {children}
-        <Button onClick={toggleVisibility}>Calcel</Button>
+        <Button onClick={toggleVisibility}>Hide</Button>
       </div>
     </div>
   );
