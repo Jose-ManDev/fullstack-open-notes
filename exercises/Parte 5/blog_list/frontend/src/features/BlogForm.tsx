@@ -11,6 +11,7 @@ type BlogFormProps = {
 function BlogForm({ onCreate }: BlogFormProps) {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
+  const [author, setAuthor] = useState("");
 
   const createNotification = useCreateNotification();
 
@@ -21,7 +22,7 @@ function BlogForm({ onCreate }: BlogFormProps) {
     e.preventDefault();
 
     blogService
-      .create({ title, url })
+      .create({ title, url, author })
       .then((blog) => {
         onCreate(blog);
         createNotification.success(`A new blog "${title}" was added`);
@@ -54,6 +55,14 @@ function BlogForm({ onCreate }: BlogFormProps) {
         onChange={(e) => setUrl(e.target.value)}
       >
         URL
+      </Input>
+      <Input
+        type="text"
+        required
+        value={author}
+        onChange={(e) => setAuthor(e.target.value)}
+      >
+        Author
       </Input>
       <Button type="submit">Create</Button>
     </form>

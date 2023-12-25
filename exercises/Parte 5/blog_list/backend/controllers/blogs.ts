@@ -39,6 +39,7 @@ blogsRouter.post(
       const blog = {
         title: body.title,
         url: body.url,
+        author: body.author,
         likes: body.likes || 0,
         user: {
           username: user.username,

@@ -9,7 +9,6 @@ type ListProps<T> = HTMLAttributes<HTMLDivElement> & {
 
 function List<T>(props: ListProps<T>) {
   const { listType, list, mapList, children, ...defaultProps } = props;
-  console.log(defaultProps);
 
   switch (listType) {
     case "ol": {

@@ -1,6 +1,7 @@
 type Blog = {
   title: string;
   url: string;
+  author: string;
   likes: number;
   id: string;
   user: {
@@ -13,4 +14,5 @@ type Blog = {
 type NewBlog = {
   title: string;
   url: string;
+  author: string;
 };

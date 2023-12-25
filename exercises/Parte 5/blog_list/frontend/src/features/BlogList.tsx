@@ -41,13 +41,14 @@ function BlogList() {
 const Blog = ({ blog }: { blog: Blog }) => {
   return (
     <li>
-      {blog.title} {blog.user.name}
+      {blog.title} {blog.author}
       <Togglable buttonLabel="show details">
         <ul>
           <li>{blog.url}</li>
           <li>
             {blog.likes} <Button>like</Button>
           </li>
+          <li>{blog.user.name}</li>
         </ul>
       </Togglable>
     </li>

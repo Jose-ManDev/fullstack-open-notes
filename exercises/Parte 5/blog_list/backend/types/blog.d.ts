@@ -13,12 +13,14 @@ interface BlogSchema {
 type NewBlogData = {
   title: string;
   url: string;
+  author: string;
   likes?: number;
 };
 
 type BlogQueryResponse = {
   title: string;
   url: string;
+  author: string;
   likes: number;
   id: string;
   user: {
