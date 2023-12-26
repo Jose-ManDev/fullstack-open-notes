@@ -5,6 +5,7 @@ import blogService from "../services/blogs";
 import List from "../components/List";
 import Togglable from "../components/Togglable";
 import Button from "../components/Button";
+import sortByLikes from "../utils/blogUtils";
 
 function BlogList() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -12,18 +13,20 @@ function BlogList() {
 
   useEffect(() => {
     blogService.getAll().then((blogs) => {
-      setBlogs(blogs);
+      setBlogs(blogs.sort(sortByLikes));
     });
   }, []);
 
   const handleCreate = (blog: Blog) => {
-    setBlogs(blogs.concat(blog));
+    setBlogs(blogs.concat(blog).sort(sortByLikes));
   };
 
   const handleLike = (id: string, blog: Blog) => {
     blogService.like(id, blog).then((updatedBlog) => {
       setBlogs(
-        blogs.map((blog) => (blog.id !== updatedBlog.id ? blog : updatedBlog))
+        blogs
+          .map((blog) => (blog.id !== updatedBlog.id ? blog : updatedBlog))
+          .sort(sortByLikes)
       );
     });
   };
