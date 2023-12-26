@@ -24,4 +24,18 @@ const create = async (newBlog: NewBlog) => {
   return response.data;
 };
 
-export default { setToken, getAll, create };
+const like = async (id: string, blog: Blog) => {
+  const config = {
+    headers: { Authorization: `Bearer ${userToken}` },
+  };
+
+  const likedBlog = {
+    ...blog,
+    likes: blog.likes + 1,
+  };
+
+  const response = await axios.put(`${baseUrl}/${id}`, likedBlog, config);
+  return response.data;
+};
+
+export default { setToken, getAll, create, like };

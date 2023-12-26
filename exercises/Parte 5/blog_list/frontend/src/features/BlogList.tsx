@@ -20,6 +20,14 @@ function BlogList() {
     setBlogs(blogs.concat(blog));
   };
 
+  const handleLike = (id: string, blog: Blog) => {
+    blogService.like(id, blog).then((updatedBlog) => {
+      setBlogs(
+        blogs.map((blog) => (blog.id !== updatedBlog.id ? blog : updatedBlog))
+      );
+    });
+  };
+
   return (
     <div>
       {user ? (
@@ -30,7 +38,9 @@ function BlogList() {
       <List
         listType="ul"
         list={blogs}
-        mapList={(blog) => <Blog key={blog.id} blog={blog} />}
+        mapList={(blog) => (
+          <Blog key={blog.id} blog={blog} onLike={handleLike} />
+        )}
       >
         Blogs
       </List>
@@ -38,7 +48,13 @@ function BlogList() {
   );
 }
 
-const Blog = ({ blog }: { blog: Blog }) => {
+const Blog = ({
+  blog,
+  onLike,
+}: {
+  blog: Blog;
+  onLike: (id: string, blog: Blog) => void;
+}) => {
   return (
     <li>
       {blog.title} {blog.author}
@@ -46,7 +62,8 @@ const Blog = ({ blog }: { blog: Blog }) => {
         <ul>
           <li>{blog.url}</li>
           <li>
-            {blog.likes} <Button>like</Button>
+            {blog.likes}{" "}
+            <Button onClick={() => onLike(blog.id, blog)}>like</Button>
           </li>
           <li>{blog.user.name}</li>
         </ul>
