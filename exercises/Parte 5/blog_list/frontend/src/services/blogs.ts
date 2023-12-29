@@ -6,6 +6,12 @@ const baseUrl =
 
 let userToken = "";
 
+const getConfig = () => {
+  return {
+    headers: { Authorization: `Bearer ${userToken}` },
+  };
+};
+
 const setToken = (token: string) => {
   userToken = token;
 };
@@ -16,18 +22,21 @@ const getAll = async () => {
 };
 
 const create = async (newBlog: NewBlog) => {
-  const config = {
-    headers: { Authorization: `Bearer ${userToken}` },
-  };
+  const config = getConfig();
 
   const response = await axios.post(baseUrl, newBlog, config);
   return response.data;
 };
 
+const remove = async (id: string) => {
+  const config = getConfig();
+
+  const response = await axios.delete(`${baseUrl}/${id}`, config);
+  return response.data;
+};
+
 const like = async (id: string, blog: Blog) => {
-  const config = {
-    headers: { Authorization: `Bearer ${userToken}` },
-  };
+  const config = getConfig();
 
   const likedBlog = {
     ...blog,
@@ -38,4 +47,4 @@ const like = async (id: string, blog: Blog) => {
   return response.data;
 };
 
-export default { setToken, getAll, create, like };
+export default { setToken, getAll, create, remove, like };

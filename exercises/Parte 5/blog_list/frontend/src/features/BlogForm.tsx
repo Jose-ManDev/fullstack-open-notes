@@ -15,9 +15,6 @@ function BlogForm({ onCreate }: BlogFormProps) {
 
   const createNotification = useCreateNotification();
 
-  if (!createNotification)
-    throw new ReferenceError("createNotification is not assigned");
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -35,6 +32,7 @@ function BlogForm({ onCreate }: BlogFormProps) {
       .finally(() => {
         setTitle("");
         setUrl("");
+        setAuthor("");
       });
   };
 

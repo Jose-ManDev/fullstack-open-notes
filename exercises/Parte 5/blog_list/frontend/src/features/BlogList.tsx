@@ -31,6 +31,14 @@ function BlogList() {
     });
   };
 
+  const handleRemove = (id: string, blog: Blog) => {
+    if (window.confirm(`Remove blog ${blog.title} from ${blog.author}?`)) {
+      blogService.remove(id).finally(() => {
+        setBlogs(blogs.filter((blog) => blog.id !== id));
+      });
+    }
+  };
+
   return (
     <div>
       {user ? (
@@ -42,7 +50,12 @@ function BlogList() {
         listType="ul"
         list={blogs}
         mapList={(blog) => (
-          <Blog key={blog.id} blog={blog} onLike={handleLike} />
+          <Blog
+            key={blog.id}
+            blog={blog}
+            onLike={handleLike}
+            onRemove={handleRemove}
+          />
         )}
       >
         Blogs
@@ -54,13 +67,21 @@ function BlogList() {
 const Blog = ({
   blog,
   onLike,
+  onRemove,
 }: {
   blog: Blog;
   onLike: (id: string, blog: Blog) => void;
+  onRemove: (id: string, blog: Blog) => void;
 }) => {
+  const user = useUser();
+
+  const isUserOwned = blog.user.name === user?.name;
   return (
     <li>
       {blog.title} {blog.author}
+      {isUserOwned && (
+        <Button onClick={() => onRemove(blog.id, blog)}>Delete</Button>
+      )}
       <Togglable buttonLabel="show details">
         <ul>
           <li>{blog.url}</li>

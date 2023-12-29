@@ -14,7 +14,7 @@ type Actions =
     }
   | { type: "LOGOUT" };
 
-const userReducer = (state: User | null, action: Actions) => {
+const userReducer = (_: User | null, action: Actions) => {
   switch (action.type) {
     case "LOGIN": {
       window.localStorage.setItem("loggedUser", JSON.stringify(action.payload));

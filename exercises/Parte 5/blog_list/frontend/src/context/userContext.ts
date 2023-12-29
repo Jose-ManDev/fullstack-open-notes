@@ -8,11 +8,19 @@ const UserContext = createContext<User | null>(null);
 const UserUpdateContext = createContext<DispatchUser | null>(null);
 
 function useUser() {
-  return useContext(UserContext);
+  const userContext = useContext(UserContext);
+
+  return userContext;
 }
 
 function useUserUpdate() {
-  return useContext(UserUpdateContext);
+  const userUpdateContext = useContext(UserUpdateContext);
+
+  if (!userUpdateContext)
+    throw new ReferenceError(
+      "useUserUpdate should be used within the scope of a UserProvider component"
+    );
+  return userUpdateContext;
 }
 
 export { UserContext, UserUpdateContext, useUser, useUserUpdate };

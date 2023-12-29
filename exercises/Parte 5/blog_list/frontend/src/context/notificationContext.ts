@@ -17,7 +17,13 @@ function useNotificationQueue() {
 }
 
 function useCreateNotification() {
-  return useContext(CreateNotificationContext);
+  const createNotificationContext = useContext(CreateNotificationContext);
+
+  if (!createNotificationContext)
+    throw new ReferenceError(
+      "useCreateNotification should be used within the scope of a NotificationProvider component"
+    );
+  return createNotificationContext;
 }
 
 export {

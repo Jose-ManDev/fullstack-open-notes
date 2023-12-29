@@ -15,10 +15,6 @@ const LoginForm = () => {
   const dispatchUser = useUserUpdate();
   const createNotification = useCreateNotification();
 
-  if (!dispatchUser) throw new ReferenceError("dispatchUser is not assigned");
-  if (!createNotification)
-    throw new ReferenceError("createNotification is not assigned");
-
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
