@@ -64,22 +64,20 @@ function BlogList() {
   );
 }
 
-const Blog = ({
-  blog,
-  onLike,
-  onRemove,
-}: {
+type BlogProps = {
   blog: Blog;
   onLike: (id: string, blog: Blog) => void;
   onRemove: (id: string, blog: Blog) => void;
-}) => {
+};
+
+const Blog = ({ blog, onLike, onRemove }: BlogProps) => {
   const user = useUser();
 
-  const isUserOwned = blog.user.name === user?.name;
+  const isOwnedByUser = blog.user.name === user?.name;
   return (
     <li>
       {blog.title} {blog.author}
-      {isUserOwned && (
+      {isOwnedByUser && (
         <Button onClick={() => onRemove(blog.id, blog)}>Delete</Button>
       )}
       <Togglable buttonLabel="show details">
